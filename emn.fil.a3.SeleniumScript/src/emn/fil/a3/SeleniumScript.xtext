@@ -1,0 +1,63 @@
+grammar emn.fil.a3.SeleniumScript with org.eclipse.xtext.common.Terminals
+
+generate seleniumScript "http://www.fil.emn/a3/SeleniumScript"
+
+Script:
+	functions+=Function (END_OF_LINE functions+=Function)
+;
+
+Function: name=FUN (SEPARATOR params+=Expression) ;
+enum FUN:
+		OPEN = "open"
+	|	GO = "go"
+	|	CLICK = "click"
+	|	FILL = "fill"
+;
+
+
+Expression:
+	Selectors | PRIMARY 
+;
+
+Selectors:
+	'(' (
+		'(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)*
+		| selector+=Selector
+	) ')'
+;
+
+Selector:
+	name=ELEM 
+	(WHITE_SPACE (
+		selectors+=PropSelector 
+		(PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*
+	))? 
+;
+enum ELEM:
+		FIELD = 'field'
+	|	BUTTON = 'button'
+	|	CHECKBOX = 'checkbox'
+	|	LINK = 'link'
+	|	SELECT = 'select'
+;
+
+
+PropSelector: name=PROP WHITE_SPACE param=PRIMARY;
+enum PROP :
+		ID = 'id'
+	|	CLASS = 'class'
+	|	NAME = 'name'
+	|	VALUE = 'value'
+;
+
+
+PRIMARY:
+	STRING | ID | INT
+;
+
+SEPARATOR: WHITE_SPACE;
+SELECTOR_COMBINATOR: '.';
+PROP_SELECTOR_COMBINATOR: WHITE_SPACE;
+
+terminal END_OF_LINE: WHITE_SPACE "\n" WHITE_SPACE;
+terminal WHITE_SPACE: (' '|'\t'|'\r')*;

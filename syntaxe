@@ -1,0 +1,24 @@
+open
+
+set username = "mtisi08"
+set password = "12345"
+
+fun login url ->
+	go url
+	click (link text "Log in")
+	click (button text "Cliquez ici ou sur le logo C'zam pour vous identifier")
+	fill (field id "username") username
+	fill (field id "password") password
+
+login "http://campus.mines-nantes.fr"
+
+set warn = get (checkbox option "warn")
+if not warn:
+	select (checkbox option "warn") true
+
+click button ((id "qq") . (text "Connexion"))
+
+go "https://campusneo.mines-nantes.fr/campus/"
+
+check contain (link "Consulter le profil") "Massimo Tisi"
+
