@@ -440,9 +440,9 @@ rule__Selectors__Alternatives_1
 	)
 	|
 	(
-		{ before(grammarAccess.getSelectorsAccess().getSelectorAssignment_1_1()); }
-		(rule__Selectors__SelectorAssignment_1_1)
-		{ after(grammarAccess.getSelectorsAccess().getSelectorAssignment_1_1()); }
+		{ before(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_1()); }
+		(rule__Selectors__SelectorsAssignment_1_1)
+		{ after(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_1()); }
 	)
 ;
 finally {
@@ -1024,9 +1024,9 @@ rule__Selectors__Group_1_0_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSelectorsAccess().getSlectorsAssignment_1_0_3_1()); }
-	(rule__Selectors__SlectorsAssignment_1_0_3_1)
-	{ after(grammarAccess.getSelectorsAccess().getSlectorsAssignment_1_0_3_1()); }
+	{ before(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_3_1()); }
+	(rule__Selectors__SelectorsAssignment_1_0_3_1)
+	{ after(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_3_1()); }
 )
 ;
 finally {
@@ -1406,30 +1406,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Selectors__SlectorsAssignment_1_0_3_1
+rule__Selectors__SelectorsAssignment_1_0_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0()); }
+		{ before(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0()); }
 		ruleSelector
-		{ after(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0()); }
+		{ after(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Selectors__SelectorAssignment_1_1
+rule__Selectors__SelectorsAssignment_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0()); }
 		ruleSelector
-		{ after(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0()); }
+		{ after(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0()); }
 	)
 ;
 finally {

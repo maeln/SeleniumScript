@@ -161,31 +161,13 @@ public interface SeleniumScriptPackage extends EPackage
   int SELECTORS__SELECTORS = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Slectors</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTORS__SLECTORS = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Selector</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTORS__SELECTOR = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
    * The number of structural features of the '<em>Selectors</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTORS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int SELECTORS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link emn.fil.a3.seleniumScript.impl.SelectorImpl <em>Selector</em>}' class.
@@ -356,28 +338,6 @@ public interface SeleniumScriptPackage extends EPackage
   EReference getSelectors_Selectors();
 
   /**
-   * Returns the meta object for the containment reference list '{@link emn.fil.a3.seleniumScript.Selectors#getSlectors <em>Slectors</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Slectors</em>'.
-   * @see emn.fil.a3.seleniumScript.Selectors#getSlectors()
-   * @see #getSelectors()
-   * @generated
-   */
-  EReference getSelectors_Slectors();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link emn.fil.a3.seleniumScript.Selectors#getSelector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Selector</em>'.
-   * @see emn.fil.a3.seleniumScript.Selectors#getSelector()
-   * @see #getSelectors()
-   * @generated
-   */
-  EReference getSelectors_Selector();
-
-  /**
    * Returns the meta object for class '{@link emn.fil.a3.seleniumScript.Selector <em>Selector</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -546,22 +506,6 @@ public interface SeleniumScriptPackage extends EPackage
      * @generated
      */
     EReference SELECTORS__SELECTORS = eINSTANCE.getSelectors_Selectors();
-
-    /**
-     * The meta object literal for the '<em><b>Slectors</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTORS__SLECTORS = eINSTANCE.getSelectors_Slectors();
-
-    /**
-     * The meta object literal for the '<em><b>Selector</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTORS__SELECTOR = eINSTANCE.getSelectors_Selector();
 
     /**
      * The meta object literal for the '{@link emn.fil.a3.seleniumScript.impl.SelectorImpl <em>Selector</em>}' class.

@@ -9,6 +9,9 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import emn.fil.a3.seleniumScript.Script
+import emn.fil.a3.seleniumScript.Function
+import emn.fil.a3.seleniumScript.Selectors
+import emn.fil.a3.seleniumScript.Selector
 
 /**
  * Generates code from your model files on save.
@@ -25,13 +28,55 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 	
 	def CharSequence genSeleniumcript(Script script) '''
 		class Script {
-			void openBrowser() {
+			public static void main(String args[]) throws InterruptedException {
+				System.setProperty("webdriver.gecko.driver", "TO FILL");
+				WebDriver driver;
+				
+				
+				«FOR f : script.functions»
+					«switch f.name {
+						case "open":
+							genOpen(f)
+						case "go":
+							genGo(f)
+						case "click":
+							genClick(f)
+						case "fill":
+							genFill(f)
+					}»
+				«ENDFOR»
 			}
-			
-		«FOR f : script.functions»
-				boolean «f.name»() {
-				}
-		«ENDFOR»
 		}
+	'''
+	
+	def CharSequence genOpen(Function f) '''
+		«IF f.params.get(0).equals("firefox")»
+			driver = new FirefoxDriver()
+		«ELSE»
+			throw new RuntimeException("Unsuported browser.");
+		«ENDIF»
+	'''
+	
+	def CharSequence genGo(Function f) '''
+		driver.get("«f.params.get(0)»");
+	'''
+	
+	def CharSequence genClick(Function f) '''
+		«IF f.params.get(0) instanceof Selectors»
+		driver.findElement(
+			«FOR s : ((Selectors) f.params.get(0))»
+				
+			«ENDFOR»
+			).click();
+		«ELSE»
+			throw new RuntimeException("Unknown expression.");
+		«ENDIF»
+	'''
+	
+	def CharSequence genFill(Function f) '''
+	'''
+	
+	def CharSequence genXPath(Selector s) '''
+	
 	'''
 }

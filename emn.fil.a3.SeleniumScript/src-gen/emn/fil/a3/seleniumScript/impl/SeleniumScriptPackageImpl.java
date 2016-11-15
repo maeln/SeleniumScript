@@ -217,26 +217,6 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSelectors_Slectors()
-  {
-    return (EReference)selectorsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelectors_Selector()
-  {
-    return (EReference)selectorsEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getSelector()
   {
     return selectorEClass;
@@ -343,8 +323,6 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     selectorsEClass = createEClass(SELECTORS);
     createEReference(selectorsEClass, SELECTORS__SELECTORS);
-    createEReference(selectorsEClass, SELECTORS__SLECTORS);
-    createEReference(selectorsEClass, SELECTORS__SELECTOR);
 
     selectorEClass = createEClass(SELECTOR);
     createEAttribute(selectorEClass, SELECTOR__NAME);
@@ -399,8 +377,6 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     initEClass(selectorsEClass, Selectors.class, "Selectors", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectors_Selectors(), this.getSelector(), null, "selectors", null, 0, -1, Selectors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelectors_Slectors(), this.getSelector(), null, "slectors", null, 0, -1, Selectors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelectors_Selector(), this.getSelector(), null, "selector", null, 0, -1, Selectors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

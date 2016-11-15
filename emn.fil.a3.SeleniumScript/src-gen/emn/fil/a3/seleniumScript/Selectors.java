@@ -15,8 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link emn.fil.a3.seleniumScript.Selectors#getSelectors <em>Selectors</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.Selectors#getSlectors <em>Slectors</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.Selectors#getSelector <em>Selector</em>}</li>
  * </ul>
  *
  * @see emn.fil.a3.seleniumScript.SeleniumScriptPackage#getSelectors()
@@ -40,37 +38,5 @@ public interface Selectors extends Expression
    * @generated
    */
   EList<Selector> getSelectors();
-
-  /**
-   * Returns the value of the '<em><b>Slectors</b></em>' containment reference list.
-   * The list contents are of type {@link emn.fil.a3.seleniumScript.Selector}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Slectors</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Slectors</em>' containment reference list.
-   * @see emn.fil.a3.seleniumScript.SeleniumScriptPackage#getSelectors_Slectors()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Selector> getSlectors();
-
-  /**
-   * Returns the value of the '<em><b>Selector</b></em>' containment reference list.
-   * The list contents are of type {@link emn.fil.a3.seleniumScript.Selector}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Selector</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Selector</em>' containment reference list.
-   * @see emn.fil.a3.seleniumScript.SeleniumScriptPackage#getSelectors_Selector()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Selector> getSelector();
 
 } // Selectors

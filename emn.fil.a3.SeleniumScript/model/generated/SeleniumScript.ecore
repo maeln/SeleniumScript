@@ -15,10 +15,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Selectors" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectors" upperBound="-1"
         eType="#//Selector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="slectors" upperBound="-1"
-        eType="#//Selector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" upperBound="-1"
-        eType="#//Selector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Selector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

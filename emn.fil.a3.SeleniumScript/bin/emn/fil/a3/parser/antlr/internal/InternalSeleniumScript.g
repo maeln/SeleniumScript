@@ -332,17 +332,17 @@ ruleSelectors returns [EObject current=null]
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0());
+								newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0());
 							}
-							lv_slectors_5_0=ruleSelector
+							lv_selectors_5_0=ruleSelector
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getSelectorsRule());
 								}
 								add(
 									$current,
-									"slectors",
-									lv_slectors_5_0,
+									"selectors",
+									lv_selectors_5_0,
 									"emn.fil.a3.SeleniumScript.Selector");
 								afterParserOrEnumRuleCall();
 							}
@@ -354,17 +354,17 @@ ruleSelectors returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0());
 					}
-					lv_selector_6_0=ruleSelector
+					lv_selectors_6_0=ruleSelector
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSelectorsRule());
 						}
 						add(
 							$current,
-							"selector",
-							lv_selector_6_0,
+							"selectors",
+							lv_selectors_6_0,
 							"emn.fil.a3.SeleniumScript.Selector");
 						afterParserOrEnumRuleCall();
 					}

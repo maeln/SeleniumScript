@@ -58,8 +58,8 @@ public class SeleniumScriptParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getNameAssignment_0(), "rule__Function__NameAssignment_0");
 					put(grammarAccess.getFunctionAccess().getParamsAssignment_1_1(), "rule__Function__ParamsAssignment_1_1");
 					put(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_1(), "rule__Selectors__SelectorsAssignment_1_0_1");
-					put(grammarAccess.getSelectorsAccess().getSlectorsAssignment_1_0_3_1(), "rule__Selectors__SlectorsAssignment_1_0_3_1");
-					put(grammarAccess.getSelectorsAccess().getSelectorAssignment_1_1(), "rule__Selectors__SelectorAssignment_1_1");
+					put(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_3_1(), "rule__Selectors__SelectorsAssignment_1_0_3_1");
+					put(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_1(), "rule__Selectors__SelectorsAssignment_1_1");
 					put(grammarAccess.getSelectorAccess().getNameAssignment_0(), "rule__Selector__NameAssignment_0");
 					put(grammarAccess.getSelectorAccess().getSelectorsAssignment_1_1_0(), "rule__Selector__SelectorsAssignment_1_1_0");
 					put(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_1_1(), "rule__Selector__PropSelectorsAssignment_1_1_1_1");

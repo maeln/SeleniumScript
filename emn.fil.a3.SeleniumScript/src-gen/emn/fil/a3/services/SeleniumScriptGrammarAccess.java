@@ -154,27 +154,27 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
 		private final Group cGroup_1_0_3 = (Group)cGroup_1_0.eContents().get(3);
 		private final RuleCall cSELECTOR_COMBINATORParserRuleCall_1_0_3_0 = (RuleCall)cGroup_1_0_3.eContents().get(0);
-		private final Assignment cSlectorsAssignment_1_0_3_1 = (Assignment)cGroup_1_0_3.eContents().get(1);
-		private final RuleCall cSlectorsSelectorParserRuleCall_1_0_3_1_0 = (RuleCall)cSlectorsAssignment_1_0_3_1.eContents().get(0);
-		private final Assignment cSelectorAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cSelectorSelectorParserRuleCall_1_1_0 = (RuleCall)cSelectorAssignment_1_1.eContents().get(0);
+		private final Assignment cSelectorsAssignment_1_0_3_1 = (Assignment)cGroup_1_0_3.eContents().get(1);
+		private final RuleCall cSelectorsSelectorParserRuleCall_1_0_3_1_0 = (RuleCall)cSelectorsAssignment_1_0_3_1.eContents().get(0);
+		private final Assignment cSelectorsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cSelectorsSelectorParserRuleCall_1_1_0 = (RuleCall)cSelectorsAssignment_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Selectors:
-		//	'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)*
-		//	| selector+=Selector) ')';
+		//	'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)*
+		//	| selectors+=Selector) ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)* | selector+=Selector) ')'
+		//'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)* | selectors+=Selector) ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
-		//('(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)* | selector+=Selector)
+		//('(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)* | selectors+=Selector)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)*
+		//'(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'('
@@ -189,23 +189,23 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_1_0_2() { return cRightParenthesisKeyword_1_0_2; }
 		
-		//(SELECTOR_COMBINATOR slectors+=Selector)*
+		//(SELECTOR_COMBINATOR selectors+=Selector)*
 		public Group getGroup_1_0_3() { return cGroup_1_0_3; }
 		
 		//SELECTOR_COMBINATOR
 		public RuleCall getSELECTOR_COMBINATORParserRuleCall_1_0_3_0() { return cSELECTOR_COMBINATORParserRuleCall_1_0_3_0; }
 		
-		//slectors+=Selector
-		public Assignment getSlectorsAssignment_1_0_3_1() { return cSlectorsAssignment_1_0_3_1; }
+		//selectors+=Selector
+		public Assignment getSelectorsAssignment_1_0_3_1() { return cSelectorsAssignment_1_0_3_1; }
 		
 		//Selector
-		public RuleCall getSlectorsSelectorParserRuleCall_1_0_3_1_0() { return cSlectorsSelectorParserRuleCall_1_0_3_1_0; }
+		public RuleCall getSelectorsSelectorParserRuleCall_1_0_3_1_0() { return cSelectorsSelectorParserRuleCall_1_0_3_1_0; }
 		
-		//selector+=Selector
-		public Assignment getSelectorAssignment_1_1() { return cSelectorAssignment_1_1; }
+		//selectors+=Selector
+		public Assignment getSelectorsAssignment_1_1() { return cSelectorsAssignment_1_1; }
 		
 		//Selector
-		public RuleCall getSelectorSelectorParserRuleCall_1_1_0() { return cSelectorSelectorParserRuleCall_1_1_0; }
+		public RuleCall getSelectorsSelectorParserRuleCall_1_1_0() { return cSelectorsSelectorParserRuleCall_1_1_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
@@ -522,8 +522,8 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Selectors:
-	//	'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)*
-	//	| selector+=Selector) ')';
+	//	'(' ('(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)*
+	//	| selectors+=Selector) ')';
 	public SelectorsElements getSelectorsAccess() {
 		return pSelectors;
 	}

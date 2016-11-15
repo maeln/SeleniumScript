@@ -753,7 +753,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelectors"
-    // InternalSeleniumScript.g:283:1: ruleSelectors returns [EObject current=null] : (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) ) otherlv_7= ')' ) ;
+    // InternalSeleniumScript.g:283:1: ruleSelectors returns [EObject current=null] : (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) ) otherlv_7= ')' ) ;
     public final EObject ruleSelectors() throws RecognitionException {
         EObject current = null;
 
@@ -763,26 +763,26 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
         Token otherlv_7=null;
         EObject lv_selectors_2_0 = null;
 
-        EObject lv_slectors_5_0 = null;
+        EObject lv_selectors_5_0 = null;
 
-        EObject lv_selector_6_0 = null;
+        EObject lv_selectors_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSeleniumScript.g:289:2: ( (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) ) otherlv_7= ')' ) )
-            // InternalSeleniumScript.g:290:2: (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) ) otherlv_7= ')' )
+            // InternalSeleniumScript.g:289:2: ( (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) ) otherlv_7= ')' ) )
+            // InternalSeleniumScript.g:290:2: (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) ) otherlv_7= ')' )
             {
-            // InternalSeleniumScript.g:290:2: (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) ) otherlv_7= ')' )
-            // InternalSeleniumScript.g:291:3: otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) ) otherlv_7= ')'
+            // InternalSeleniumScript.g:290:2: (otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) ) otherlv_7= ')' )
+            // InternalSeleniumScript.g:291:3: otherlv_0= '(' ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) ) otherlv_7= ')'
             {
             otherlv_0=(Token)match(input,17,FOLLOW_8); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSelectorsAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalSeleniumScript.g:295:3: ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* ) | ( (lv_selector_6_0= ruleSelector ) ) )
+            // InternalSeleniumScript.g:295:3: ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -800,10 +800,10 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSeleniumScript.g:296:4: (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* )
+                    // InternalSeleniumScript.g:296:4: (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* )
                     {
-                    // InternalSeleniumScript.g:296:4: (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )* )
-                    // InternalSeleniumScript.g:297:5: otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )*
+                    // InternalSeleniumScript.g:296:4: (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* )
+                    // InternalSeleniumScript.g:297:5: otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )*
                     {
                     otherlv_1=(Token)match(input,17,FOLLOW_8); 
 
@@ -844,7 +844,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
                     					newLeafNode(otherlv_3, grammarAccess.getSelectorsAccess().getRightParenthesisKeyword_1_0_2());
                     				
-                    // InternalSeleniumScript.g:324:5: ( ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) ) )*
+                    // InternalSeleniumScript.g:324:5: ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )*
                     loop5:
                     do {
                         int alt5=2;
@@ -857,7 +857,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalSeleniumScript.g:325:6: ruleSELECTOR_COMBINATOR ( (lv_slectors_5_0= ruleSelector ) )
+                    	    // InternalSeleniumScript.g:325:6: ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) )
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getSelectorsAccess().getSELECTOR_COMBINATORParserRuleCall_1_0_3_0());
@@ -870,17 +870,17 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
                     	    						afterParserOrEnumRuleCall();
                     	    					
-                    	    // InternalSeleniumScript.g:332:6: ( (lv_slectors_5_0= ruleSelector ) )
-                    	    // InternalSeleniumScript.g:333:7: (lv_slectors_5_0= ruleSelector )
+                    	    // InternalSeleniumScript.g:332:6: ( (lv_selectors_5_0= ruleSelector ) )
+                    	    // InternalSeleniumScript.g:333:7: (lv_selectors_5_0= ruleSelector )
                     	    {
-                    	    // InternalSeleniumScript.g:333:7: (lv_slectors_5_0= ruleSelector )
-                    	    // InternalSeleniumScript.g:334:8: lv_slectors_5_0= ruleSelector
+                    	    // InternalSeleniumScript.g:333:7: (lv_selectors_5_0= ruleSelector )
+                    	    // InternalSeleniumScript.g:334:8: lv_selectors_5_0= ruleSelector
                     	    {
 
-                    	    								newCompositeNode(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0());
+                    	    								newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0());
                     	    							
                     	    pushFollow(FOLLOW_10);
-                    	    lv_slectors_5_0=ruleSelector();
+                    	    lv_selectors_5_0=ruleSelector();
 
                     	    state._fsp--;
 
@@ -890,8 +890,8 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     	    								}
                     	    								add(
                     	    									current,
-                    	    									"slectors",
-                    	    									lv_slectors_5_0,
+                    	    									"selectors",
+                    	    									lv_selectors_5_0,
                     	    									"emn.fil.a3.SeleniumScript.Selector");
                     	    								afterParserOrEnumRuleCall();
                     	    							
@@ -917,19 +917,19 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSeleniumScript.g:354:4: ( (lv_selector_6_0= ruleSelector ) )
+                    // InternalSeleniumScript.g:354:4: ( (lv_selectors_6_0= ruleSelector ) )
                     {
-                    // InternalSeleniumScript.g:354:4: ( (lv_selector_6_0= ruleSelector ) )
-                    // InternalSeleniumScript.g:355:5: (lv_selector_6_0= ruleSelector )
+                    // InternalSeleniumScript.g:354:4: ( (lv_selectors_6_0= ruleSelector ) )
+                    // InternalSeleniumScript.g:355:5: (lv_selectors_6_0= ruleSelector )
                     {
-                    // InternalSeleniumScript.g:355:5: (lv_selector_6_0= ruleSelector )
-                    // InternalSeleniumScript.g:356:6: lv_selector_6_0= ruleSelector
+                    // InternalSeleniumScript.g:355:5: (lv_selectors_6_0= ruleSelector )
+                    // InternalSeleniumScript.g:356:6: lv_selectors_6_0= ruleSelector
                     {
 
-                    						newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0());
+                    						newCompositeNode(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0());
                     					
                     pushFollow(FOLLOW_9);
-                    lv_selector_6_0=ruleSelector();
+                    lv_selectors_6_0=ruleSelector();
 
                     state._fsp--;
 
@@ -939,8 +939,8 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     						}
                     						add(
                     							current,
-                    							"selector",
-                    							lv_selector_6_0,
+                    							"selectors",
+                    							lv_selectors_6_0,
                     							"emn.fil.a3.SeleniumScript.Selector");
                     						afterParserOrEnumRuleCall();
                     					

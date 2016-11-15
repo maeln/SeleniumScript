@@ -17,8 +17,8 @@ Expression:
 
 Selectors:
 	'(' (
-		'(' selectors+=Selector ')' (SELECTOR_COMBINATOR slectors+=Selector)*
-		| selector+=Selector
+		'(' selectors+=Selector ')' (SELECTOR_COMBINATOR selectors+=Selector)*
+		| selectors+=Selector
 	) ')'
 ;
 

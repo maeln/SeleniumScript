@@ -28,8 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorsImpl#getSelectors <em>Selectors</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorsImpl#getSlectors <em>Slectors</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorsImpl#getSelector <em>Selector</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,26 +43,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
    * @ordered
    */
   protected EList<Selector> selectors;
-
-  /**
-   * The cached value of the '{@link #getSlectors() <em>Slectors</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSlectors()
-   * @generated
-   * @ordered
-   */
-  protected EList<Selector> slectors;
-
-  /**
-   * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSelector()
-   * @generated
-   * @ordered
-   */
-  protected EList<Selector> selector;
 
   /**
    * <!-- begin-user-doc -->
@@ -106,34 +84,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Selector> getSlectors()
-  {
-    if (slectors == null)
-    {
-      slectors = new EObjectContainmentEList<Selector>(Selector.class, this, SeleniumScriptPackage.SELECTORS__SLECTORS);
-    }
-    return slectors;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Selector> getSelector()
-  {
-    if (selector == null)
-    {
-      selector = new EObjectContainmentEList<Selector>(Selector.class, this, SeleniumScriptPackage.SELECTORS__SELECTOR);
-    }
-    return selector;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -141,10 +91,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
     {
       case SeleniumScriptPackage.SELECTORS__SELECTORS:
         return ((InternalEList<?>)getSelectors()).basicRemove(otherEnd, msgs);
-      case SeleniumScriptPackage.SELECTORS__SLECTORS:
-        return ((InternalEList<?>)getSlectors()).basicRemove(otherEnd, msgs);
-      case SeleniumScriptPackage.SELECTORS__SELECTOR:
-        return ((InternalEList<?>)getSelector()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -161,10 +107,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
     {
       case SeleniumScriptPackage.SELECTORS__SELECTORS:
         return getSelectors();
-      case SeleniumScriptPackage.SELECTORS__SLECTORS:
-        return getSlectors();
-      case SeleniumScriptPackage.SELECTORS__SELECTOR:
-        return getSelector();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,14 +126,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
         getSelectors().clear();
         getSelectors().addAll((Collection<? extends Selector>)newValue);
         return;
-      case SeleniumScriptPackage.SELECTORS__SLECTORS:
-        getSlectors().clear();
-        getSlectors().addAll((Collection<? extends Selector>)newValue);
-        return;
-      case SeleniumScriptPackage.SELECTORS__SELECTOR:
-        getSelector().clear();
-        getSelector().addAll((Collection<? extends Selector>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -209,12 +143,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
       case SeleniumScriptPackage.SELECTORS__SELECTORS:
         getSelectors().clear();
         return;
-      case SeleniumScriptPackage.SELECTORS__SLECTORS:
-        getSlectors().clear();
-        return;
-      case SeleniumScriptPackage.SELECTORS__SELECTOR:
-        getSelector().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -231,10 +159,6 @@ public class SelectorsImpl extends ExpressionImpl implements Selectors
     {
       case SeleniumScriptPackage.SELECTORS__SELECTORS:
         return selectors != null && !selectors.isEmpty();
-      case SeleniumScriptPackage.SELECTORS__SLECTORS:
-        return slectors != null && !slectors.isEmpty();
-      case SeleniumScriptPackage.SELECTORS__SELECTOR:
-        return selector != null && !selector.isEmpty();
     }
     return super.eIsSet(featureID);
   }

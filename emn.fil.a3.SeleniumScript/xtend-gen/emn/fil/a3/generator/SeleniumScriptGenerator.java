@@ -4,8 +4,10 @@
 package emn.fil.a3.generator;
 
 import com.google.common.collect.Iterables;
+import emn.fil.a3.seleniumScript.Expression;
 import emn.fil.a3.seleniumScript.Function;
 import emn.fil.a3.seleniumScript.Script;
+import emn.fil.a3.seleniumScript.Selector;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,26 +38,93 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
     _builder.append("class Script {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("void openBrowser() {");
+    _builder.append("public static void main(String args[]) throws InterruptedException {");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
+    _builder.append("\t\t");
+    _builder.append("System.setProperty(\"webdriver.gecko.driver\", \"TO FILL\");");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("\t\t");
+    _builder.append("WebDriver driver;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     {
       EList<Function> _functions = script.getFunctions();
       for(final Function f : _functions) {
-        _builder.append("boolean ");
+        _builder.append("\t\t");
+        CharSequence _switchResult = null;
         String _name = f.getName();
-        _builder.append(_name, "");
-        _builder.append("() {");
+        switch (_name) {
+          case "open":
+            _switchResult = this.genOpen(f);
+            break;
+          case "go":
+            _switchResult = this.genGo(f);
+            break;
+          case "click":
+            _switchResult = this.genClick(f);
+            break;
+          case "fill":
+            _switchResult = this.genFill(f);
+            break;
+        }
+        _builder.append(_switchResult, "\t\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("}");
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genOpen(final Function f) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Expression> _params = f.getParams();
+      Expression _get = _params.get(0);
+      boolean _equals = _get.equals("firefox");
+      if (_equals) {
+        _builder.append("driver = new FirefoxDriver()");
+        _builder.newLine();
+      } else {
+        _builder.append("throw new RuntimeException(\"Unsuported browser.\");");
         _builder.newLine();
       }
     }
-    _builder.append("}");
+    return _builder;
+  }
+  
+  public CharSequence genGo(final Function f) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("driver.get(\"");
+    EList<Expression> _params = f.getParams();
+    Expression _get = _params.get(0);
+    _builder.append(_get, "");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genClick(final Function f) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nmissing \')\' at \'f\'"
+      + "\nno viable alternative at input \')\'"
+      + "\nType mismatch: cannot convert from Class<Selectors> to Iterable<?>");
+  }
+  
+  public CharSequence genFill(final Function f) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence genXPath(final Selector s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }

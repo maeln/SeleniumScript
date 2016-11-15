@@ -1252,13 +1252,13 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Selectors__Alternatives_1"
-    // InternalSeleniumScript.g:431:1: rule__Selectors__Alternatives_1 : ( ( ( rule__Selectors__Group_1_0__0 ) ) | ( ( rule__Selectors__SelectorAssignment_1_1 ) ) );
+    // InternalSeleniumScript.g:431:1: rule__Selectors__Alternatives_1 : ( ( ( rule__Selectors__Group_1_0__0 ) ) | ( ( rule__Selectors__SelectorsAssignment_1_1 ) ) );
     public final void rule__Selectors__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSeleniumScript.g:435:1: ( ( ( rule__Selectors__Group_1_0__0 ) ) | ( ( rule__Selectors__SelectorAssignment_1_1 ) ) )
+            // InternalSeleniumScript.g:435:1: ( ( ( rule__Selectors__Group_1_0__0 ) ) | ( ( rule__Selectors__SelectorsAssignment_1_1 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1301,24 +1301,24 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
                     }
                     break;
                 case 2 :
-                    // InternalSeleniumScript.g:442:2: ( ( rule__Selectors__SelectorAssignment_1_1 ) )
+                    // InternalSeleniumScript.g:442:2: ( ( rule__Selectors__SelectorsAssignment_1_1 ) )
                     {
-                    // InternalSeleniumScript.g:442:2: ( ( rule__Selectors__SelectorAssignment_1_1 ) )
-                    // InternalSeleniumScript.g:443:3: ( rule__Selectors__SelectorAssignment_1_1 )
+                    // InternalSeleniumScript.g:442:2: ( ( rule__Selectors__SelectorsAssignment_1_1 ) )
+                    // InternalSeleniumScript.g:443:3: ( rule__Selectors__SelectorsAssignment_1_1 )
                     {
-                     before(grammarAccess.getSelectorsAccess().getSelectorAssignment_1_1()); 
-                    // InternalSeleniumScript.g:444:3: ( rule__Selectors__SelectorAssignment_1_1 )
-                    // InternalSeleniumScript.g:444:4: rule__Selectors__SelectorAssignment_1_1
+                     before(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_1()); 
+                    // InternalSeleniumScript.g:444:3: ( rule__Selectors__SelectorsAssignment_1_1 )
+                    // InternalSeleniumScript.g:444:4: rule__Selectors__SelectorsAssignment_1_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Selectors__SelectorAssignment_1_1();
+                    rule__Selectors__SelectorsAssignment_1_1();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getSelectorsAccess().getSelectorAssignment_1_1()); 
+                     after(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_1()); 
 
                     }
 
@@ -3124,31 +3124,31 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Selectors__Group_1_0_3__1__Impl"
-    // InternalSeleniumScript.g:1021:1: rule__Selectors__Group_1_0_3__1__Impl : ( ( rule__Selectors__SlectorsAssignment_1_0_3_1 ) ) ;
+    // InternalSeleniumScript.g:1021:1: rule__Selectors__Group_1_0_3__1__Impl : ( ( rule__Selectors__SelectorsAssignment_1_0_3_1 ) ) ;
     public final void rule__Selectors__Group_1_0_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSeleniumScript.g:1025:1: ( ( ( rule__Selectors__SlectorsAssignment_1_0_3_1 ) ) )
-            // InternalSeleniumScript.g:1026:1: ( ( rule__Selectors__SlectorsAssignment_1_0_3_1 ) )
+            // InternalSeleniumScript.g:1025:1: ( ( ( rule__Selectors__SelectorsAssignment_1_0_3_1 ) ) )
+            // InternalSeleniumScript.g:1026:1: ( ( rule__Selectors__SelectorsAssignment_1_0_3_1 ) )
             {
-            // InternalSeleniumScript.g:1026:1: ( ( rule__Selectors__SlectorsAssignment_1_0_3_1 ) )
-            // InternalSeleniumScript.g:1027:2: ( rule__Selectors__SlectorsAssignment_1_0_3_1 )
+            // InternalSeleniumScript.g:1026:1: ( ( rule__Selectors__SelectorsAssignment_1_0_3_1 ) )
+            // InternalSeleniumScript.g:1027:2: ( rule__Selectors__SelectorsAssignment_1_0_3_1 )
             {
-             before(grammarAccess.getSelectorsAccess().getSlectorsAssignment_1_0_3_1()); 
-            // InternalSeleniumScript.g:1028:2: ( rule__Selectors__SlectorsAssignment_1_0_3_1 )
-            // InternalSeleniumScript.g:1028:3: rule__Selectors__SlectorsAssignment_1_0_3_1
+             before(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_3_1()); 
+            // InternalSeleniumScript.g:1028:2: ( rule__Selectors__SelectorsAssignment_1_0_3_1 )
+            // InternalSeleniumScript.g:1028:3: rule__Selectors__SelectorsAssignment_1_0_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__Selectors__SlectorsAssignment_1_0_3_1();
+            rule__Selectors__SelectorsAssignment_1_0_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSelectorsAccess().getSlectorsAssignment_1_0_3_1()); 
+             after(grammarAccess.getSelectorsAccess().getSelectorsAssignment_1_0_3_1()); 
 
             }
 
@@ -4288,9 +4288,9 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__Selectors__SelectorsAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__Selectors__SlectorsAssignment_1_0_3_1"
-    // InternalSeleniumScript.g:1409:1: rule__Selectors__SlectorsAssignment_1_0_3_1 : ( ruleSelector ) ;
-    public final void rule__Selectors__SlectorsAssignment_1_0_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Selectors__SelectorsAssignment_1_0_3_1"
+    // InternalSeleniumScript.g:1409:1: rule__Selectors__SelectorsAssignment_1_0_3_1 : ( ruleSelector ) ;
+    public final void rule__Selectors__SelectorsAssignment_1_0_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -4301,13 +4301,13 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1414:2: ( ruleSelector )
             // InternalSeleniumScript.g:1415:3: ruleSelector
             {
-             before(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0()); 
+             before(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0()); 
             pushFollow(FOLLOW_2);
             ruleSelector();
 
             state._fsp--;
 
-             after(grammarAccess.getSelectorsAccess().getSlectorsSelectorParserRuleCall_1_0_3_1_0()); 
+             after(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_0_3_1_0()); 
 
             }
 
@@ -4326,12 +4326,12 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__Selectors__SlectorsAssignment_1_0_3_1"
+    // $ANTLR end "rule__Selectors__SelectorsAssignment_1_0_3_1"
 
 
-    // $ANTLR start "rule__Selectors__SelectorAssignment_1_1"
-    // InternalSeleniumScript.g:1424:1: rule__Selectors__SelectorAssignment_1_1 : ( ruleSelector ) ;
-    public final void rule__Selectors__SelectorAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Selectors__SelectorsAssignment_1_1"
+    // InternalSeleniumScript.g:1424:1: rule__Selectors__SelectorsAssignment_1_1 : ( ruleSelector ) ;
+    public final void rule__Selectors__SelectorsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -4342,13 +4342,13 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1429:2: ( ruleSelector )
             // InternalSeleniumScript.g:1430:3: ruleSelector
             {
-             before(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0()); 
+             before(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
             ruleSelector();
 
             state._fsp--;
 
-             after(grammarAccess.getSelectorsAccess().getSelectorSelectorParserRuleCall_1_1_0()); 
+             after(grammarAccess.getSelectorsAccess().getSelectorsSelectorParserRuleCall_1_1_0()); 
 
             }
 
@@ -4367,7 +4367,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__Selectors__SelectorAssignment_1_1"
+    // $ANTLR end "rule__Selectors__SelectorsAssignment_1_1"
 
 
     // $ANTLR start "rule__Selector__NameAssignment_0"

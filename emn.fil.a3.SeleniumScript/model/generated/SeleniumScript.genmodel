@@ -16,8 +16,6 @@
     <genClasses ecoreClass="SeleniumScript.ecore#//Expression"/>
     <genClasses ecoreClass="SeleniumScript.ecore#//Selectors">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SeleniumScript.ecore#//Selectors/selectors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SeleniumScript.ecore#//Selectors/slectors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SeleniumScript.ecore#//Selectors/selector"/>
     </genClasses>
     <genClasses ecoreClass="SeleniumScript.ecore#//Selector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SeleniumScript.ecore#//Selector/name"/>
