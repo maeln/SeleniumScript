@@ -3,16 +3,12 @@ grammar emn.fil.a3.SeleniumScript with org.eclipse.xtext.common.Terminals
 generate seleniumScript "http://www.fil.emn/a3/SeleniumScript"
 
 Script:
-	functions+=Function (END_OF_LINE functions+=Function)
+	functions+=Function (END_OF_LINE functions+=Function)* WS*
 ;
 
-Function: name=FUN (SEPARATOR params+=Expression) ;
-enum FUN:
-		OPEN = "open"
-	|	GO = "go"
-	|	CLICK = "click"
-	|	FILL = "fill"
-;
+Function: name=Fun (SEPARATOR params+=Expression) ;
+
+Fun: "open" | "go" | "click" | "fill";
 
 
 Expression:
@@ -27,27 +23,18 @@ Selectors:
 ;
 
 Selector:
-	name=ELEM 
+	name=Elem 
 	(WHITE_SPACE (
 		selectors+=PropSelector 
 		(PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*
 	))? 
 ;
-enum ELEM:
-		FIELD = 'field'
-	|	BUTTON = 'button'
-	|	CHECKBOX = 'checkbox'
-	|	LINK = 'link'
-	|	SELECT = 'select'
-;
+
+Elem: 'field'|'button'|'checkbox'|'link'|'select';
 
 
-PropSelector: name=PROP WHITE_SPACE param=PRIMARY;
-enum PROP :
-		ID = 'id'
-	|	CLASS = 'class'
-	|	NAME = 'name'
-	|	VALUE = 'value'
+PropSelector: name=Prop WHITE_SPACE param=PRIMARY;
+Prop: 'id'|'class'|'name'|'value'
 ;
 
 

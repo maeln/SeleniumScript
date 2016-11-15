@@ -7,5 +7,23 @@ Bundle-SymbolicName: emn.fil.a3.SeleniumScript; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: emn.fil.a3.parser.antlr,
+ emn.fil.a3.services,
+ emn.fil.a3.seleniumScript.impl,
+ emn.fil.a3.seleniumScript,
+ emn.fil.a3.parser.antlr.internal,
+ emn.fil.a3.serializer,
+ emn.fil.a3.scoping,
+ emn.fil.a3,
+ emn.fil.a3.generator,
+ emn.fil.a3.validation,
+ emn.fil.a3.seleniumScript.util
+Import-Package: org.apache.log4j

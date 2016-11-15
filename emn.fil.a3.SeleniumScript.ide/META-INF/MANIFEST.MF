@@ -9,3 +9,6 @@ Require-Bundle: emn.fil.a3.SeleniumScript,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: emn.fil.a3.ide.contentassist.antlr.internal,
+ emn.fil.a3.ide.contentassist.antlr
+
