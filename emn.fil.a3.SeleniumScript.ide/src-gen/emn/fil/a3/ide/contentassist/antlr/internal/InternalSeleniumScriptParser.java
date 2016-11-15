@@ -3540,31 +3540,31 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Selector__Group_1_1__0__Impl"
-    // InternalSeleniumScript.g:1157:1: rule__Selector__Group_1_1__0__Impl : ( ( rule__Selector__SelectorsAssignment_1_1_0 ) ) ;
+    // InternalSeleniumScript.g:1157:1: rule__Selector__Group_1_1__0__Impl : ( ( rule__Selector__PropSelectorsAssignment_1_1_0 ) ) ;
     public final void rule__Selector__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSeleniumScript.g:1161:1: ( ( ( rule__Selector__SelectorsAssignment_1_1_0 ) ) )
-            // InternalSeleniumScript.g:1162:1: ( ( rule__Selector__SelectorsAssignment_1_1_0 ) )
+            // InternalSeleniumScript.g:1161:1: ( ( ( rule__Selector__PropSelectorsAssignment_1_1_0 ) ) )
+            // InternalSeleniumScript.g:1162:1: ( ( rule__Selector__PropSelectorsAssignment_1_1_0 ) )
             {
-            // InternalSeleniumScript.g:1162:1: ( ( rule__Selector__SelectorsAssignment_1_1_0 ) )
-            // InternalSeleniumScript.g:1163:2: ( rule__Selector__SelectorsAssignment_1_1_0 )
+            // InternalSeleniumScript.g:1162:1: ( ( rule__Selector__PropSelectorsAssignment_1_1_0 ) )
+            // InternalSeleniumScript.g:1163:2: ( rule__Selector__PropSelectorsAssignment_1_1_0 )
             {
-             before(grammarAccess.getSelectorAccess().getSelectorsAssignment_1_1_0()); 
-            // InternalSeleniumScript.g:1164:2: ( rule__Selector__SelectorsAssignment_1_1_0 )
-            // InternalSeleniumScript.g:1164:3: rule__Selector__SelectorsAssignment_1_1_0
+             before(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_0()); 
+            // InternalSeleniumScript.g:1164:2: ( rule__Selector__PropSelectorsAssignment_1_1_0 )
+            // InternalSeleniumScript.g:1164:3: rule__Selector__PropSelectorsAssignment_1_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__Selector__SelectorsAssignment_1_1_0();
+            rule__Selector__PropSelectorsAssignment_1_1_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSelectorAccess().getSelectorsAssignment_1_1_0()); 
+             after(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_0()); 
 
             }
 
@@ -4411,9 +4411,9 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
     // $ANTLR end "rule__Selector__NameAssignment_0"
 
 
-    // $ANTLR start "rule__Selector__SelectorsAssignment_1_1_0"
-    // InternalSeleniumScript.g:1454:1: rule__Selector__SelectorsAssignment_1_1_0 : ( rulePropSelector ) ;
-    public final void rule__Selector__SelectorsAssignment_1_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Selector__PropSelectorsAssignment_1_1_0"
+    // InternalSeleniumScript.g:1454:1: rule__Selector__PropSelectorsAssignment_1_1_0 : ( rulePropSelector ) ;
+    public final void rule__Selector__PropSelectorsAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -4424,13 +4424,13 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1459:2: ( rulePropSelector )
             // InternalSeleniumScript.g:1460:3: rulePropSelector
             {
-             before(grammarAccess.getSelectorAccess().getSelectorsPropSelectorParserRuleCall_1_1_0_0()); 
+             before(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0()); 
             pushFollow(FOLLOW_2);
             rulePropSelector();
 
             state._fsp--;
 
-             after(grammarAccess.getSelectorAccess().getSelectorsPropSelectorParserRuleCall_1_1_0_0()); 
+             after(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0()); 
 
             }
 
@@ -4449,7 +4449,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end "rule__Selector__SelectorsAssignment_1_1_0"
+    // $ANTLR end "rule__Selector__PropSelectorsAssignment_1_1_0"
 
 
     // $ANTLR start "rule__Selector__PropSelectorsAssignment_1_1_1_1"

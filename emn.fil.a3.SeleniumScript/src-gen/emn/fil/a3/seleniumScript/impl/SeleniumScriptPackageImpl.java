@@ -237,19 +237,9 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSelector_Selectors()
-  {
-    return (EReference)selectorEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSelector_PropSelectors()
   {
-    return (EReference)selectorEClass.getEStructuralFeatures().get(2);
+    return (EReference)selectorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -326,7 +316,6 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     selectorEClass = createEClass(SELECTOR);
     createEAttribute(selectorEClass, SELECTOR__NAME);
-    createEReference(selectorEClass, SELECTOR__SELECTORS);
     createEReference(selectorEClass, SELECTOR__PROP_SELECTORS);
 
     propSelectorEClass = createEClass(PROP_SELECTOR);
@@ -380,7 +369,6 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelector_Selectors(), this.getPropSelector(), null, "selectors", null, 0, -1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelector_PropSelectors(), this.getPropSelector(), null, "propSelectors", null, 0, -1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propSelectorEClass, PropSelector.class, "PropSelector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

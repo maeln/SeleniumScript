@@ -422,17 +422,17 @@ ruleSelector returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSelectorAccess().getSelectorsPropSelectorParserRuleCall_1_1_0_0());
+							newCompositeNode(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0());
 						}
-						lv_selectors_2_0=rulePropSelector
+						lv_propSelectors_2_0=rulePropSelector
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getSelectorRule());
 							}
 							add(
 								$current,
-								"selectors",
-								lv_selectors_2_0,
+								"propSelectors",
+								lv_propSelectors_2_0,
 								"emn.fil.a3.SeleniumScript.PropSelector");
 							afterParserOrEnumRuleCall();
 						}

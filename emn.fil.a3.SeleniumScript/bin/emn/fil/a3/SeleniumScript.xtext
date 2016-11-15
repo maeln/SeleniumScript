@@ -25,7 +25,7 @@ Selectors:
 Selector:
 	name=Elem 
 	(WHITE_SPACE (
-		selectors+=PropSelector 
+		propSelectors+=PropSelector 
 		(PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*
 	))? 
 ;

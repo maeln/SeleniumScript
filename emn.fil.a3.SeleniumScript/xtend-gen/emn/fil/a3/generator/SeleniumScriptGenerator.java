@@ -6,8 +6,11 @@ package emn.fil.a3.generator;
 import com.google.common.collect.Iterables;
 import emn.fil.a3.seleniumScript.Expression;
 import emn.fil.a3.seleniumScript.Function;
+import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.Script;
 import emn.fil.a3.seleniumScript.Selector;
+import emn.fil.a3.seleniumScript.Selectors;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,7 +18,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -111,10 +116,92 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
   }
   
   public CharSequence genClick(final Function f) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nmissing \')\' at \'f\'"
-      + "\nno viable alternative at input \')\'"
-      + "\nType mismatch: cannot convert from Class<Selectors> to Iterable<?>");
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Expression> _params = f.getParams();
+      Expression _get = _params.get(0);
+      if ((_get instanceof Selectors)) {
+        _builder.append("driver.findElement(");
+        EList<Expression> _params_1 = f.getParams();
+        _builder.append(_params_1, "");
+        _builder.append(").click();");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("throw new RuntimeException(\"Unknown expression.\");");
+        _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  public void getXpathFromSelectors(final EList<Expression> expressions) {
+    Expression firstParam = expressions.get(0);
+    if ((firstParam instanceof Selectors)) {
+      EList<Selector> selectors = ((Selectors) firstParam).getSelectors();
+      final Function1<Selector, String> _function = (Selector s) -> {
+        String _xblockexpression = null;
+        {
+          EList<PropSelector> _propSelectors = s.getPropSelectors();
+          String props = this.getXPathFromProps(_propSelectors);
+          String _switchResult = null;
+          String _name = s.getName();
+          switch (_name) {
+            case "field":
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("input[ @type=\"text\" and ");
+              _builder.append(props, "");
+              _builder.append("]");
+              _builder.newLineIfNotEmpty();
+              _switchResult = _builder.toString();
+              break;
+            case "button":
+              StringConcatenation _builder_1 = new StringConcatenation();
+              _builder_1.append("button[");
+              _builder_1.append(props, "");
+              _builder_1.append("] |");
+              _builder_1.newLineIfNotEmpty();
+              _builder_1.append("input[ (@type=\"button\" or @type=\"submit\" or @type=\"reset\" ");
+              _builder_1.append(props, "");
+              _builder_1.newLineIfNotEmpty();
+              _switchResult = _builder_1.toString();
+              break;
+            case "checkbox":
+              StringConcatenation _builder_2 = new StringConcatenation();
+              _builder_2.append("input[ @type=\"checkbox\" and ");
+              _builder_2.append(props, "");
+              _builder_2.append("]");
+              _builder_2.newLineIfNotEmpty();
+              _switchResult = _builder_2.toString();
+              break;
+            case "link":
+              StringConcatenation _builder_3 = new StringConcatenation();
+              _builder_3.append("a[ ");
+              _builder_3.append(props, "");
+              _builder_3.append("]");
+              _builder_3.newLineIfNotEmpty();
+              _switchResult = _builder_3.toString();
+              break;
+            case "select":
+              StringConcatenation _builder_4 = new StringConcatenation();
+              _builder_4.append("select[ ");
+              _builder_4.append(props, "");
+              _builder_4.append("]");
+              _builder_4.newLineIfNotEmpty();
+              _switchResult = _builder_4.toString();
+              break;
+          }
+          _xblockexpression = _switchResult;
+        }
+        return _xblockexpression;
+      };
+      List<String> paths = ListExtensions.<Selector, String>map(selectors, _function);
+    } else {
+      throw new IllegalArgumentException("Selector Needed");
+    }
+  }
+  
+  public String getXPathFromProps(final EList<PropSelector> props) {
+    return "TODO";
   }
   
   public CharSequence genFill(final Function f) {

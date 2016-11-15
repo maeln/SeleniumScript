@@ -1160,9 +1160,9 @@ rule__Selector__Group_1_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSelectorAccess().getSelectorsAssignment_1_1_0()); }
-	(rule__Selector__SelectorsAssignment_1_1_0)
-	{ after(grammarAccess.getSelectorAccess().getSelectorsAssignment_1_1_0()); }
+	{ before(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_0()); }
+	(rule__Selector__PropSelectorsAssignment_1_1_0)
+	{ after(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_0()); }
 )
 ;
 finally {
@@ -1451,15 +1451,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Selector__SelectorsAssignment_1_1_0
+rule__Selector__PropSelectorsAssignment_1_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSelectorAccess().getSelectorsPropSelectorParserRuleCall_1_1_0_0()); }
+		{ before(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0()); }
 		rulePropSelector
-		{ after(grammarAccess.getSelectorAccess().getSelectorsPropSelectorParserRuleCall_1_1_0_0()); }
+		{ after(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0()); }
 	)
 ;
 finally {

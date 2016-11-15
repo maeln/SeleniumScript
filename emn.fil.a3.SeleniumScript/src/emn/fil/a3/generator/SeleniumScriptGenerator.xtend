@@ -12,6 +12,9 @@ import emn.fil.a3.seleniumScript.Script
 import emn.fil.a3.seleniumScript.Function
 import emn.fil.a3.seleniumScript.Selectors
 import emn.fil.a3.seleniumScript.Selector
+import org.eclipse.emf.common.util.EList
+import emn.fil.a3.seleniumScript.Expression
+import emn.fil.a3.seleniumScript.PropSelector
 
 /**
  * Generates code from your model files on save.
@@ -63,15 +66,46 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 	
 	def CharSequence genClick(Function f) '''
 		«IF f.params.get(0) instanceof Selectors»
-		driver.findElement(
-			«FOR s : ((Selectors) f.params.get(0))»
-				
-			«ENDFOR»
-			).click();
+		driver.findElement(«f.params»).click();
 		«ELSE»
 			throw new RuntimeException("Unknown expression.");
 		«ENDIF»
 	'''
+	
+	def getXpathFromSelectors(EList<Expression> expressions) {
+		var firstParam = expressions.get(0);
+		if(firstParam instanceof Selectors) {
+			var selectors = (firstParam as Selectors).selectors
+			var paths = selectors.map[s |
+				var props = getXPathFromProps(s.propSelectors);
+				switch s.name {
+					case "field" : '''
+						input[ @type="text" and «props»]
+					'''
+					case "button" :'''
+						button[«props»] |
+						input[ (@type="button" or @type="submit" or @type="reset" «props»
+					'''
+					
+					case "checkbox" :'''
+						input[ @type="checkbox" and «props»]
+					'''
+					case "link" :'''
+						a[ «props»]
+					'''
+					
+					case "select" :'''
+						select[ «props»]
+					'''
+					
+				}
+			]
+		} else throw new IllegalArgumentException("Selector Needed")
+	}
+	
+	def getXPathFromProps(EList<PropSelector> props) {
+		"TODO"
+	}
 	
 	def CharSequence genFill(Function f) '''
 	'''

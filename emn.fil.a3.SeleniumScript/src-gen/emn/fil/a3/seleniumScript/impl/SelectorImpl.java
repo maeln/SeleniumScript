@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorImpl#getName <em>Name</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorImpl#getSelectors <em>Selectors</em>}</li>
  *   <li>{@link emn.fil.a3.seleniumScript.impl.SelectorImpl#getPropSelectors <em>Prop Selectors</em>}</li>
  * </ul>
  *
@@ -59,16 +58,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getSelectors() <em>Selectors</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSelectors()
-   * @generated
-   * @ordered
-   */
-  protected EList<PropSelector> selectors;
 
   /**
    * The cached value of the '{@link #getPropSelectors() <em>Prop Selectors</em>}' containment reference list.
@@ -129,20 +118,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PropSelector> getSelectors()
-  {
-    if (selectors == null)
-    {
-      selectors = new EObjectContainmentEList<PropSelector>(PropSelector.class, this, SeleniumScriptPackage.SELECTOR__SELECTORS);
-    }
-    return selectors;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<PropSelector> getPropSelectors()
   {
     if (propSelectors == null)
@@ -162,8 +137,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
   {
     switch (featureID)
     {
-      case SeleniumScriptPackage.SELECTOR__SELECTORS:
-        return ((InternalEList<?>)getSelectors()).basicRemove(otherEnd, msgs);
       case SeleniumScriptPackage.SELECTOR__PROP_SELECTORS:
         return ((InternalEList<?>)getPropSelectors()).basicRemove(otherEnd, msgs);
     }
@@ -182,8 +155,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
     {
       case SeleniumScriptPackage.SELECTOR__NAME:
         return getName();
-      case SeleniumScriptPackage.SELECTOR__SELECTORS:
-        return getSelectors();
       case SeleniumScriptPackage.SELECTOR__PROP_SELECTORS:
         return getPropSelectors();
     }
@@ -203,10 +174,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
     {
       case SeleniumScriptPackage.SELECTOR__NAME:
         setName((String)newValue);
-        return;
-      case SeleniumScriptPackage.SELECTOR__SELECTORS:
-        getSelectors().clear();
-        getSelectors().addAll((Collection<? extends PropSelector>)newValue);
         return;
       case SeleniumScriptPackage.SELECTOR__PROP_SELECTORS:
         getPropSelectors().clear();
@@ -229,9 +196,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
       case SeleniumScriptPackage.SELECTOR__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SeleniumScriptPackage.SELECTOR__SELECTORS:
-        getSelectors().clear();
-        return;
       case SeleniumScriptPackage.SELECTOR__PROP_SELECTORS:
         getPropSelectors().clear();
         return;
@@ -251,8 +215,6 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
     {
       case SeleniumScriptPackage.SELECTOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SeleniumScriptPackage.SELECTOR__SELECTORS:
-        return selectors != null && !selectors.isEmpty();
       case SeleniumScriptPackage.SELECTOR__PROP_SELECTORS:
         return propSelectors != null && !propSelectors.isEmpty();
     }

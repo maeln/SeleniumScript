@@ -106,7 +106,7 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Selector returns Selector
 	 *
 	 * Constraint:
-	 *     (name=Elem (selectors+=PropSelector propSelectors+=PropSelector*)?)
+	 *     (name=Elem (propSelectors+=PropSelector propSelectors+=PropSelector*)?)
 	 */
 	protected void sequence_Selector(ISerializationContext context, Selector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

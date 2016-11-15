@@ -189,22 +189,13 @@ public interface SeleniumScriptPackage extends EPackage
   int SELECTOR__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Selectors</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__SELECTORS = 1;
-
-  /**
    * The feature id for the '<em><b>Prop Selectors</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTOR__PROP_SELECTORS = 2;
+  int SELECTOR__PROP_SELECTORS = 1;
 
   /**
    * The number of structural features of the '<em>Selector</em>' class.
@@ -213,7 +204,7 @@ public interface SeleniumScriptPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECTOR_FEATURE_COUNT = 3;
+  int SELECTOR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link emn.fil.a3.seleniumScript.impl.PropSelectorImpl <em>Prop Selector</em>}' class.
@@ -357,17 +348,6 @@ public interface SeleniumScriptPackage extends EPackage
    * @generated
    */
   EAttribute getSelector_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link emn.fil.a3.seleniumScript.Selector#getSelectors <em>Selectors</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Selectors</em>'.
-   * @see emn.fil.a3.seleniumScript.Selector#getSelectors()
-   * @see #getSelector()
-   * @generated
-   */
-  EReference getSelector_Selectors();
 
   /**
    * Returns the meta object for the containment reference list '{@link emn.fil.a3.seleniumScript.Selector#getPropSelectors <em>Prop Selectors</em>}'.
@@ -524,14 +504,6 @@ public interface SeleniumScriptPackage extends EPackage
      * @generated
      */
     EAttribute SELECTOR__NAME = eINSTANCE.getSelector_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Selectors</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTOR__SELECTORS = eINSTANCE.getSelector_Selectors();
 
     /**
      * The meta object literal for the '<em><b>Prop Selectors</b></em>' containment reference list feature.

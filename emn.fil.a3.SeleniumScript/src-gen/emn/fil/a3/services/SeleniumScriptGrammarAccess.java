@@ -218,18 +218,18 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final RuleCall cWHITE_SPACETerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Assignment cSelectorsAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSelectorsPropSelectorParserRuleCall_1_1_0_0 = (RuleCall)cSelectorsAssignment_1_1_0.eContents().get(0);
+		private final Assignment cPropSelectorsAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cPropSelectorsPropSelectorParserRuleCall_1_1_0_0 = (RuleCall)cPropSelectorsAssignment_1_1_0.eContents().get(0);
 		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
 		private final RuleCall cPROP_SELECTOR_COMBINATORParserRuleCall_1_1_1_0 = (RuleCall)cGroup_1_1_1.eContents().get(0);
 		private final Assignment cPropSelectorsAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
 		private final RuleCall cPropSelectorsPropSelectorParserRuleCall_1_1_1_1_0 = (RuleCall)cPropSelectorsAssignment_1_1_1_1.eContents().get(0);
 		
 		//Selector:
-		//	name=Elem (WHITE_SPACE (selectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?;
+		//	name=Elem (WHITE_SPACE (propSelectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=Elem (WHITE_SPACE (selectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?
+		//name=Elem (WHITE_SPACE (propSelectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?
 		public Group getGroup() { return cGroup; }
 		
 		//name=Elem
@@ -238,20 +238,20 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		//Elem
 		public RuleCall getNameElemParserRuleCall_0_0() { return cNameElemParserRuleCall_0_0; }
 		
-		//(WHITE_SPACE (selectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?
+		//(WHITE_SPACE (propSelectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//WHITE_SPACE
 		public RuleCall getWHITE_SPACETerminalRuleCall_1_0() { return cWHITE_SPACETerminalRuleCall_1_0; }
 		
-		//(selectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*)
+		//(propSelectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*)
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//selectors+=PropSelector
-		public Assignment getSelectorsAssignment_1_1_0() { return cSelectorsAssignment_1_1_0; }
+		//propSelectors+=PropSelector
+		public Assignment getPropSelectorsAssignment_1_1_0() { return cPropSelectorsAssignment_1_1_0; }
 		
 		//PropSelector
-		public RuleCall getSelectorsPropSelectorParserRuleCall_1_1_0_0() { return cSelectorsPropSelectorParserRuleCall_1_1_0_0; }
+		public RuleCall getPropSelectorsPropSelectorParserRuleCall_1_1_0_0() { return cPropSelectorsPropSelectorParserRuleCall_1_1_0_0; }
 		
 		//(PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*
 		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
@@ -533,7 +533,7 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Selector:
-	//	name=Elem (WHITE_SPACE (selectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?;
+	//	name=Elem (WHITE_SPACE (propSelectors+=PropSelector (PROP_SELECTOR_COMBINATOR propSelectors+=PropSelector)*))?;
 	public SelectorElements getSelectorAccess() {
 		return pSelector;
 	}

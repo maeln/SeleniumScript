@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link emn.fil.a3.seleniumScript.Selector#getName <em>Name</em>}</li>
- *   <li>{@link emn.fil.a3.seleniumScript.Selector#getSelectors <em>Selectors</em>}</li>
  *   <li>{@link emn.fil.a3.seleniumScript.Selector#getPropSelectors <em>Prop Selectors</em>}</li>
  * </ul>
  *
@@ -52,22 +51,6 @@ public interface Selector extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Selectors</b></em>' containment reference list.
-   * The list contents are of type {@link emn.fil.a3.seleniumScript.PropSelector}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Selectors</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Selectors</em>' containment reference list.
-   * @see emn.fil.a3.seleniumScript.SeleniumScriptPackage#getSelector_Selectors()
-   * @model containment="true"
-   * @generated
-   */
-  EList<PropSelector> getSelectors();
 
   /**
    * Returns the value of the '<em><b>Prop Selectors</b></em>' containment reference list.
