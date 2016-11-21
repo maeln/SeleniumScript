@@ -3,7 +3,6 @@
  */
 package emn.fil.a3.generator
 
-import java.io.File
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
@@ -13,7 +12,6 @@ import emn.fil.a3.seleniumScript.Function
 import emn.fil.a3.seleniumScript.Selectors
 import emn.fil.a3.seleniumScript.Selector
 import org.eclipse.emf.common.util.EList
-import emn.fil.a3.seleniumScript.Expression
 import emn.fil.a3.seleniumScript.PropSelector
 import emn.fil.a3.seleniumScript.StringValue
 import emn.fil.a3.seleniumScript.Primary
@@ -86,14 +84,14 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 	def xpath(Selector selector) {
 		val props = xpath(selector.propSelectors);
 		switch selector.name {
-			case "field" : '''input[ @type="text" and «props»]'''
+			case "field" : '''input[@type="text" and «props»]'''
 			case "button" : '''
 				button[«props»] |
 				input[ (@type="button" or @type="submit" or @type="reset" «props»]
 			'''
 			case "checkbox" :'''input[ @type="checkbox" and «props»]'''
-			case "link" :'''a[ «props»]'''
-			case "select" :'''select[ «props»]'''
+			case "link" :'''a[«props»]'''
+			case "select" :'''select[«props»]'''
 		}
 	}
 	
@@ -117,10 +115,6 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 		if(!(param instanceof Selectors)) 
 			throw new RuntimeException("A Selector is needed in parameter of `click` in expression " + f);
 			
-		'''driver.findElement(« xpath(param as Selectors) »)).sendKeys(«xpath(f.params.get(1) as Primary)»);'''
+		'''driver.findElement(«xpath(param as Selectors) »)).sendKeys(«xpath(f.params.get(1) as Primary)»);'''
 	}
-	
-	def CharSequence genXPath(Selector s) '''
-	
-	'''
 }
