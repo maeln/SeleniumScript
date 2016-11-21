@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList
 import emn.fil.a3.seleniumScript.Expression
 import emn.fil.a3.seleniumScript.PropSelector
 import emn.fil.a3.seleniumScript.StringValue
+import emn.fil.a3.seleniumScript.Primary
+import emn.fil.a3.seleniumScript.IntValue
 
 /**
  * Generates code from your model files on save.
@@ -96,7 +98,18 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 	}
 	
 	def xpath(EList<PropSelector> props) {
-		props.map[p | '''@«p.name» = «p.param»'''].join(" and ")
+		props.map[p | '''@«p.name» = «xpath(p.param)»'''].join(" and ")
+	}
+	
+	def xpath(Primary prim) {
+		if(prim instanceof StringValue) {
+			return '"' + (prim as StringValue).value + '"';
+		}
+		else if(prim instanceof IntValue) {
+			return (prim as IntValue).value;
+		}
+		else
+			return prim.toString()
 	}
 	
 	def CharSequence genFill(Function f) '''
