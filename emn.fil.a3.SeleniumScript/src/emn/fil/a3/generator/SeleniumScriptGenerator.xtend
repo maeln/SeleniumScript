@@ -74,22 +74,19 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 		if(!(param instanceof Selectors)) 
 			throw new RuntimeException("A Selector is needed in parameter of `click` in expression " + f);
 			
-		'''driver.findElement(« xpath(param as Selectors) »)).click();'''
+		'''driver.findElement(«xpath(param as Selectors)»)).click();'''
 	}
 	
-	def xpath(Selectors selectors) {
-		selectors.selectors.map[ xpath ].join(" | ")
-	}
+	def xpath(Selectors selectors) '''"//«selectors.selectors.map[ xpath ].join(" | ")»"'''
+
 	
 	def xpath(Selector selector) {
 		val props = xpath(selector.propSelectors);
 		switch selector.name {
-			case "field" : '''input[@type="text" and «props»]'''
-			case "button" : '''
-				button[«props»] |
-				input[ (@type="button" or @type="submit" or @type="reset" «props»]
-			'''
-			case "checkbox" :'''input[ @type="checkbox" and «props»]'''
+			case "field" : '''input[@type='text' and «props»]'''
+			case "button" : 
+				'''button[«props»] | input[ (@type='button' or @type='submit' or @type='reset' «props»]'''
+			case "checkbox" :'''input[ @type='checkbox' and «props»]'''
 			case "link" :'''a[«props»]'''
 			case "select" :'''select[«props»]'''
 		}
@@ -101,13 +98,13 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 	
 	def xpath(Primary prim) {
 		if(prim instanceof StringValue) {
-			return '"' + (prim as StringValue).value + '"';
+			''' '«(prim as StringValue).value»' '''
 		}
 		else if(prim instanceof IntValue) {
-			return (prim as IntValue).value;
+			(prim as IntValue).value
 		}
 		else
-			return prim.toString()
+			prim.toString()
 	}
 	
 	def CharSequence genFill(Function f) {
@@ -115,6 +112,6 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 		if(!(param instanceof Selectors)) 
 			throw new RuntimeException("A Selector is needed in parameter of `click` in expression " + f);
 			
-		'''driver.findElement(«xpath(param as Selectors) »)).sendKeys(«xpath(f.params.get(1) as Primary)»);'''
+		'''driver.findElement(«xpath(param as Selectors)»)).sendKeys(«xpath(f.params.get(1) as Primary)»);'''
 	}
 }
