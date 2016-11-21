@@ -191,7 +191,7 @@ ruleFunction returns [EObject current=null]
 					}
 				)
 			)
-		)
+		)*
 	)
 ;
 

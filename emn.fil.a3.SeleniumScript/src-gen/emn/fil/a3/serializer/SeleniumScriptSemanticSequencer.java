@@ -69,7 +69,7 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     (name=Fun params+=Expression)
+	 *     (name=Fun params+=Expression*)
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

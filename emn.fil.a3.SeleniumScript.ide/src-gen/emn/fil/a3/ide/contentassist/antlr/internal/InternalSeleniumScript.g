@@ -793,7 +793,7 @@ rule__Function__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getFunctionAccess().getGroup_1()); }
-	(rule__Function__Group_1__0)
+	(rule__Function__Group_1__0)*
 	{ after(grammarAccess.getFunctionAccess().getGroup_1()); }
 )
 ;

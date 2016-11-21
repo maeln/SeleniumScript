@@ -324,7 +324,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunction"
-    // InternalSeleniumScript.g:140:1: ruleFunction returns [EObject current=null] : ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) ) ) ;
+    // InternalSeleniumScript.g:140:1: ruleFunction returns [EObject current=null] : ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )* ) ;
     public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -337,11 +337,11 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSeleniumScript.g:146:2: ( ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) ) ) )
-            // InternalSeleniumScript.g:147:2: ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) ) )
+            // InternalSeleniumScript.g:146:2: ( ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )* ) )
+            // InternalSeleniumScript.g:147:2: ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )* )
             {
-            // InternalSeleniumScript.g:147:2: ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) ) )
-            // InternalSeleniumScript.g:148:3: ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )
+            // InternalSeleniumScript.g:147:2: ( ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )* )
+            // InternalSeleniumScript.g:148:3: ( (lv_name_0_0= ruleFun ) ) ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )*
             {
             // InternalSeleniumScript.g:148:3: ( (lv_name_0_0= ruleFun ) )
             // InternalSeleniumScript.g:149:4: (lv_name_0_0= ruleFun )
@@ -374,53 +374,71 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSeleniumScript.g:167:3: ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )
-            // InternalSeleniumScript.g:168:4: ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) )
-            {
+            // InternalSeleniumScript.g:167:3: ( ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-            				newCompositeNode(grammarAccess.getFunctionAccess().getSEPARATORParserRuleCall_1_0());
-            			
-            pushFollow(FOLLOW_7);
-            ruleSEPARATOR();
-
-            state._fsp--;
-
-
-            				afterParserOrEnumRuleCall();
-            			
-            // InternalSeleniumScript.g:175:4: ( (lv_params_2_0= ruleExpression ) )
-            // InternalSeleniumScript.g:176:5: (lv_params_2_0= ruleExpression )
-            {
-            // InternalSeleniumScript.g:176:5: (lv_params_2_0= ruleExpression )
-            // InternalSeleniumScript.g:177:6: lv_params_2_0= ruleExpression
-            {
-
-            						newCompositeNode(grammarAccess.getFunctionAccess().getParamsExpressionParserRuleCall_1_1_0());
-            					
-            pushFollow(FOLLOW_2);
-            lv_params_2_0=ruleExpression();
-
-            state._fsp--;
+                if ( (LA3_0==RULE_WHITE_SPACE) ) {
+                    alt3=1;
+                }
 
 
-            						if (current==null) {
-            							current = createModelElementForParent(grammarAccess.getFunctionRule());
-            						}
-            						add(
-            							current,
-            							"params",
-            							lv_params_2_0,
-            							"emn.fil.a3.SeleniumScript.Expression");
-            						afterParserOrEnumRuleCall();
-            					
+                switch (alt3) {
+            	case 1 :
+            	    // InternalSeleniumScript.g:168:4: ruleSEPARATOR ( (lv_params_2_0= ruleExpression ) )
+            	    {
 
-            }
+            	    				newCompositeNode(grammarAccess.getFunctionAccess().getSEPARATORParserRuleCall_1_0());
+            	    			
+            	    pushFollow(FOLLOW_7);
+            	    ruleSEPARATOR();
 
-
-            }
+            	    state._fsp--;
 
 
-            }
+            	    				afterParserOrEnumRuleCall();
+            	    			
+            	    // InternalSeleniumScript.g:175:4: ( (lv_params_2_0= ruleExpression ) )
+            	    // InternalSeleniumScript.g:176:5: (lv_params_2_0= ruleExpression )
+            	    {
+            	    // InternalSeleniumScript.g:176:5: (lv_params_2_0= ruleExpression )
+            	    // InternalSeleniumScript.g:177:6: lv_params_2_0= ruleExpression
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getFunctionAccess().getParamsExpressionParserRuleCall_1_1_0());
+            	    					
+            	    pushFollow(FOLLOW_6);
+            	    lv_params_2_0=ruleExpression();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getFunctionRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"params",
+            	    							lv_params_2_0,
+            	    							"emn.fil.a3.SeleniumScript.Expression");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
 
 
             }
@@ -495,36 +513,36 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:213:2: (kw= 'open' | kw= 'go' | kw= 'click' | kw= 'fill' )
             {
             // InternalSeleniumScript.g:213:2: (kw= 'open' | kw= 'go' | kw= 'click' | kw= 'fill' )
-            int alt3=4;
+            int alt4=4;
             switch ( input.LA(1) ) {
             case 13:
                 {
-                alt3=1;
+                alt4=1;
                 }
                 break;
             case 14:
                 {
-                alt3=2;
+                alt4=2;
                 }
                 break;
             case 15:
                 {
-                alt3=3;
+                alt4=3;
                 }
                 break;
             case 16:
                 {
-                alt3=4;
+                alt4=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
                     // InternalSeleniumScript.g:214:3: kw= 'open'
                     {
@@ -645,22 +663,22 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:255:2: (this_Selectors_0= ruleSelectors | this_Primary_1= rulePrimary )
             {
             // InternalSeleniumScript.g:255:2: (this_Selectors_0= ruleSelectors | this_Primary_1= rulePrimary )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==17) ) {
-                alt4=1;
+            if ( (LA5_0==17) ) {
+                alt5=1;
             }
-            else if ( ((LA4_0>=RULE_STRING && LA4_0<=RULE_INT)) ) {
-                alt4=2;
+            else if ( ((LA5_0>=RULE_STRING && LA5_0<=RULE_INT)) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
                     // InternalSeleniumScript.g:256:3: this_Selectors_0= ruleSelectors
                     {
@@ -786,22 +804,22 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             			newLeafNode(otherlv_0, grammarAccess.getSelectorsAccess().getLeftParenthesisKeyword_0());
             		
             // InternalSeleniumScript.g:296:3: ( (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* ) | ( (lv_selectors_6_0= ruleSelector ) ) )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==17) ) {
-                alt6=1;
+            if ( (LA7_0==17) ) {
+                alt7=1;
             }
-            else if ( ((LA6_0>=19 && LA6_0<=23)) ) {
-                alt6=2;
+            else if ( ((LA7_0>=19 && LA7_0<=23)) ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
                     // InternalSeleniumScript.g:297:4: (otherlv_1= '(' ( (lv_selectors_2_0= ruleSelector ) ) otherlv_3= ')' ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )* )
                     {
@@ -848,17 +866,17 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     					newLeafNode(otherlv_3, grammarAccess.getSelectorsAccess().getRightParenthesisKeyword_1_0_2());
                     				
                     // InternalSeleniumScript.g:325:5: ( ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) ) )*
-                    loop5:
+                    loop6:
                     do {
-                        int alt5=2;
-                        int LA5_0 = input.LA(1);
+                        int alt6=2;
+                        int LA6_0 = input.LA(1);
 
-                        if ( (LA5_0==28) ) {
-                            alt5=1;
+                        if ( (LA6_0==28) ) {
+                            alt6=1;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt6) {
                     	case 1 :
                     	    // InternalSeleniumScript.g:326:6: ruleSELECTOR_COMBINATOR ( (lv_selectors_5_0= ruleSelector ) )
                     	    {
@@ -909,7 +927,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop5;
+                    	    break loop6;
                         }
                     } while (true);
 
@@ -1053,7 +1071,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getSelectorAccess().getNameElemParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_6);
             lv_name_0_0=ruleElem();
 
             state._fsp--;
@@ -1076,17 +1094,17 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             }
 
             // InternalSeleniumScript.g:417:3: (this_WHITE_SPACE_1= RULE_WHITE_SPACE ( ( (lv_propSelectors_2_0= rulePropSelector ) ) ( rulePROP_SELECTOR_COMBINATOR ( (lv_propSelectors_4_0= rulePropSelector ) ) )* ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_WHITE_SPACE) ) {
-                alt8=1;
+            if ( (LA9_0==RULE_WHITE_SPACE) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
                     // InternalSeleniumScript.g:418:4: this_WHITE_SPACE_1= RULE_WHITE_SPACE ( ( (lv_propSelectors_2_0= rulePropSelector ) ) ( rulePROP_SELECTOR_COMBINATOR ( (lv_propSelectors_4_0= rulePropSelector ) ) )* )
                     {
-                    this_WHITE_SPACE_1=(Token)match(input,RULE_WHITE_SPACE,FOLLOW_12); 
+                    this_WHITE_SPACE_1=(Token)match(input,RULE_WHITE_SPACE,FOLLOW_11); 
 
                     				newLeafNode(this_WHITE_SPACE_1, grammarAccess.getSelectorAccess().getWHITE_SPACETerminalRuleCall_1_0());
                     			
@@ -1102,7 +1120,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
                     							newCompositeNode(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_0_0());
                     						
-                    pushFollow(FOLLOW_11);
+                    pushFollow(FOLLOW_6);
                     lv_propSelectors_2_0=rulePropSelector();
 
                     state._fsp--;
@@ -1125,24 +1143,24 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     }
 
                     // InternalSeleniumScript.g:442:5: ( rulePROP_SELECTOR_COMBINATOR ( (lv_propSelectors_4_0= rulePropSelector ) ) )*
-                    loop7:
+                    loop8:
                     do {
-                        int alt7=2;
-                        int LA7_0 = input.LA(1);
+                        int alt8=2;
+                        int LA8_0 = input.LA(1);
 
-                        if ( (LA7_0==RULE_WHITE_SPACE) ) {
-                            alt7=1;
+                        if ( (LA8_0==RULE_WHITE_SPACE) ) {
+                            alt8=1;
                         }
 
 
-                        switch (alt7) {
+                        switch (alt8) {
                     	case 1 :
                     	    // InternalSeleniumScript.g:443:6: rulePROP_SELECTOR_COMBINATOR ( (lv_propSelectors_4_0= rulePropSelector ) )
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getSelectorAccess().getPROP_SELECTOR_COMBINATORParserRuleCall_1_1_1_0());
                     	    					
-                    	    pushFollow(FOLLOW_12);
+                    	    pushFollow(FOLLOW_11);
                     	    rulePROP_SELECTOR_COMBINATOR();
 
                     	    state._fsp--;
@@ -1159,7 +1177,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
                     	    								newCompositeNode(grammarAccess.getSelectorAccess().getPropSelectorsPropSelectorParserRuleCall_1_1_1_1_0());
                     	    							
-                    	    pushFollow(FOLLOW_11);
+                    	    pushFollow(FOLLOW_6);
                     	    lv_propSelectors_4_0=rulePropSelector();
 
                     	    state._fsp--;
@@ -1186,7 +1204,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop7;
+                    	    break loop8;
                         }
                     } while (true);
 
@@ -1272,41 +1290,41 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:490:2: (kw= 'field' | kw= 'button' | kw= 'checkbox' | kw= 'link' | kw= 'select' )
             {
             // InternalSeleniumScript.g:490:2: (kw= 'field' | kw= 'button' | kw= 'checkbox' | kw= 'link' | kw= 'select' )
-            int alt9=5;
+            int alt10=5;
             switch ( input.LA(1) ) {
             case 19:
                 {
-                alt9=1;
+                alt10=1;
                 }
                 break;
             case 20:
                 {
-                alt9=2;
+                alt10=2;
                 }
                 break;
             case 21:
                 {
-                alt9=3;
+                alt10=3;
                 }
                 break;
             case 22:
                 {
-                alt9=4;
+                alt10=4;
                 }
                 break;
             case 23:
                 {
-                alt9=5;
+                alt10=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
                     // InternalSeleniumScript.g:491:3: kw= 'field'
                     {
@@ -1450,7 +1468,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getPropSelectorAccess().getNamePropParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_12);
             lv_name_0_0=ruleProp();
 
             state._fsp--;
@@ -1580,36 +1598,36 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:599:2: (kw= 'id' | kw= 'class' | kw= 'name' | kw= 'value' )
             {
             // InternalSeleniumScript.g:599:2: (kw= 'id' | kw= 'class' | kw= 'name' | kw= 'value' )
-            int alt10=4;
+            int alt11=4;
             switch ( input.LA(1) ) {
             case 24:
                 {
-                alt10=1;
+                alt11=1;
                 }
                 break;
             case 25:
                 {
-                alt10=2;
+                alt11=2;
                 }
                 break;
             case 26:
                 {
-                alt10=3;
+                alt11=3;
                 }
                 break;
             case 27:
                 {
-                alt10=4;
+                alt11=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
                     // InternalSeleniumScript.g:600:3: kw= 'id'
                     {
@@ -1730,22 +1748,22 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:641:2: (this_StringValue_0= ruleStringValue | this_IntValue_1= ruleIntValue )
             {
             // InternalSeleniumScript.g:641:2: (this_StringValue_0= ruleStringValue | this_IntValue_1= ruleIntValue )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_ID)) ) {
-                alt11=1;
+            if ( ((LA12_0>=RULE_STRING && LA12_0<=RULE_ID)) ) {
+                alt12=1;
             }
-            else if ( (LA11_0==RULE_INT) ) {
-                alt11=2;
+            else if ( (LA12_0==RULE_INT) ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
                     // InternalSeleniumScript.g:642:3: this_StringValue_0= ruleStringValue
                     {
@@ -1862,22 +1880,22 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
             // InternalSeleniumScript.g:679:4: (lv_value_0_1= RULE_STRING | lv_value_0_2= RULE_ID )
             {
             // InternalSeleniumScript.g:679:4: (lv_value_0_1= RULE_STRING | lv_value_0_2= RULE_ID )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_STRING) ) {
-                alt12=1;
+            if ( (LA13_0==RULE_STRING) ) {
+                alt13=1;
             }
-            else if ( (LA12_0==RULE_ID) ) {
-                alt12=2;
+            else if ( (LA13_0==RULE_ID) ) {
+                alt13=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
                     // InternalSeleniumScript.g:680:5: lv_value_0_1= RULE_STRING
                     {
@@ -2276,12 +2294,12 @@ public class InternalSeleniumScriptParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000032L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000001E000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000042L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020380L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000FA0000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000010040000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000000000F000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000000F000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000040L});
 
 }

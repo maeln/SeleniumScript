@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import emn.fil.a3.seleniumScript.Expression;
 import emn.fil.a3.seleniumScript.Function;
+import emn.fil.a3.seleniumScript.IntValue;
 import emn.fil.a3.seleniumScript.Primary;
 import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.Script;
@@ -140,7 +141,7 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
       }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("driver.findElement(");
-      String _xpath = this.xpath(((Selectors) param));
+      CharSequence _xpath = this.xpath(((Selectors) param));
       _builder.append(_xpath, "");
       _builder.append(")).click();");
       _xblockexpression = _builder;
@@ -148,13 +149,18 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  public String xpath(final Selectors selectors) {
+  public CharSequence xpath(final Selectors selectors) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\"//");
     EList<Selector> _selectors = selectors.getSelectors();
     final Function1<Selector, CharSequence> _function = (Selector it) -> {
       return this.xpath(it);
     };
     List<CharSequence> _map = ListExtensions.<Selector, CharSequence>map(_selectors, _function);
-    return IterableExtensions.join(_map, " | ");
+    String _join = IterableExtensions.join(_map, " | ");
+    _builder.append(_join, "");
+    _builder.append("\"");
+    return _builder;
   }
   
   public CharSequence xpath(final Selector selector) {
@@ -167,7 +173,7 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
       switch (_name) {
         case "field":
           StringConcatenation _builder = new StringConcatenation();
-          _builder.append("input[ @type=\"text\" and ");
+          _builder.append("input[@type=\'text\' and ");
           _builder.append(props, "");
           _builder.append("]");
           _switchResult = _builder;
@@ -176,31 +182,28 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
           StringConcatenation _builder_1 = new StringConcatenation();
           _builder_1.append("button[");
           _builder_1.append(props, "");
-          _builder_1.append("] |");
-          _builder_1.newLineIfNotEmpty();
-          _builder_1.append("input[ (@type=\"button\" or @type=\"submit\" or @type=\"reset\" ");
+          _builder_1.append("] | input[ (@type=\'button\' or @type=\'submit\' or @type=\'reset\' ");
           _builder_1.append(props, "");
           _builder_1.append("]");
-          _builder_1.newLineIfNotEmpty();
           _switchResult = _builder_1;
           break;
         case "checkbox":
           StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("input[ @type=\"checkbox\" and ");
+          _builder_2.append("input[ @type=\'checkbox\' and ");
           _builder_2.append(props, "");
           _builder_2.append("]");
           _switchResult = _builder_2;
           break;
         case "link":
           StringConcatenation _builder_3 = new StringConcatenation();
-          _builder_3.append("a[ ");
+          _builder_3.append("a[");
           _builder_3.append(props, "");
           _builder_3.append("]");
           _switchResult = _builder_3;
           break;
         case "select":
           StringConcatenation _builder_4 = new StringConcatenation();
-          _builder_4.append("select[ ");
+          _builder_4.append("select[");
           _builder_4.append(props, "");
           _builder_4.append("]");
           _switchResult = _builder_4;
@@ -219,22 +222,56 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
       _builder.append(_name, "");
       _builder.append(" = ");
       Primary _param = p.getParam();
-      _builder.append(_param, "");
+      Object _xpath = this.xpath(_param);
+      _builder.append(_xpath, "");
       return _builder.toString();
     };
     List<String> _map = ListExtensions.<PropSelector, String>map(props, _function);
     return IterableExtensions.join(_map, " and ");
   }
   
-  public CharSequence genFill(final Function f) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
+  public Object xpath(final Primary prim) {
+    Object _xifexpression = null;
+    if ((prim instanceof StringValue)) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(" ");
+      _builder.append("\'");
+      String _value = ((StringValue) prim).getValue();
+      _builder.append(_value, " ");
+      _builder.append("\' ");
+      _xifexpression = _builder;
+    } else {
+      Object _xifexpression_1 = null;
+      if ((prim instanceof IntValue)) {
+        _xifexpression_1 = Integer.valueOf(((IntValue) prim).getValue());
+      } else {
+        _xifexpression_1 = prim.toString();
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
   }
   
-  public CharSequence genXPath(final Selector s) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
-    _builder.newLine();
-    return _builder;
+  public CharSequence genFill(final Function f) {
+    CharSequence _xblockexpression = null;
+    {
+      EList<Expression> _params = f.getParams();
+      final Expression param = _params.get(0);
+      if ((!(param instanceof Selectors))) {
+        throw new RuntimeException(("A Selector is needed in parameter of `click` in expression " + f));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("driver.findElement(");
+      CharSequence _xpath = this.xpath(((Selectors) param));
+      _builder.append(_xpath, "");
+      _builder.append(")).sendKeys(");
+      EList<Expression> _params_1 = f.getParams();
+      Expression _get = _params_1.get(1);
+      Object _xpath_1 = this.xpath(((Primary) _get));
+      _builder.append(_xpath_1, "");
+      _builder.append(");");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
 }

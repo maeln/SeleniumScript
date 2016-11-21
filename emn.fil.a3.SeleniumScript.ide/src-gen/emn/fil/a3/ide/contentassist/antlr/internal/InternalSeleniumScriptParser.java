@@ -2452,29 +2452,47 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start "rule__Function__Group__1__Impl"
-    // InternalSeleniumScript.g:789:1: rule__Function__Group__1__Impl : ( ( rule__Function__Group_1__0 ) ) ;
+    // InternalSeleniumScript.g:789:1: rule__Function__Group__1__Impl : ( ( rule__Function__Group_1__0 )* ) ;
     public final void rule__Function__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSeleniumScript.g:793:1: ( ( ( rule__Function__Group_1__0 ) ) )
-            // InternalSeleniumScript.g:794:1: ( ( rule__Function__Group_1__0 ) )
+            // InternalSeleniumScript.g:793:1: ( ( ( rule__Function__Group_1__0 )* ) )
+            // InternalSeleniumScript.g:794:1: ( ( rule__Function__Group_1__0 )* )
             {
-            // InternalSeleniumScript.g:794:1: ( ( rule__Function__Group_1__0 ) )
-            // InternalSeleniumScript.g:795:2: ( rule__Function__Group_1__0 )
+            // InternalSeleniumScript.g:794:1: ( ( rule__Function__Group_1__0 )* )
+            // InternalSeleniumScript.g:795:2: ( rule__Function__Group_1__0 )*
             {
              before(grammarAccess.getFunctionAccess().getGroup_1()); 
-            // InternalSeleniumScript.g:796:2: ( rule__Function__Group_1__0 )
-            // InternalSeleniumScript.g:796:3: rule__Function__Group_1__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Function__Group_1__0();
+            // InternalSeleniumScript.g:796:2: ( rule__Function__Group_1__0 )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-            state._fsp--;
+                if ( (LA10_0==RULE_WHITE_SPACE) ) {
+                    alt10=1;
+                }
 
 
-            }
+                switch (alt10) {
+            	case 1 :
+            	    // InternalSeleniumScript.g:796:3: rule__Function__Group_1__0
+            	    {
+            	    pushFollow(FOLLOW_8);
+            	    rule__Function__Group_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
 
              after(grammarAccess.getFunctionAccess().getGroup_1()); 
 
@@ -2508,7 +2526,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:809:1: ( rule__Function__Group_1__0__Impl rule__Function__Group_1__1 )
             // InternalSeleniumScript.g:810:2: rule__Function__Group_1__0__Impl rule__Function__Group_1__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Function__Group_1__0__Impl();
 
             state._fsp--;
@@ -2667,7 +2685,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:863:1: ( rule__Selectors__Group__0__Impl rule__Selectors__Group__1 )
             // InternalSeleniumScript.g:864:2: rule__Selectors__Group__0__Impl rule__Selectors__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Selectors__Group__0__Impl();
 
             state._fsp--;
@@ -2742,7 +2760,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:890:1: ( rule__Selectors__Group__1__Impl rule__Selectors__Group__2 )
             // InternalSeleniumScript.g:891:2: rule__Selectors__Group__1__Impl rule__Selectors__Group__2
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             rule__Selectors__Group__1__Impl();
 
             state._fsp--;
@@ -2897,7 +2915,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:944:1: ( rule__Selectors__Group_1_0__0__Impl rule__Selectors__Group_1_0__1 )
             // InternalSeleniumScript.g:945:2: rule__Selectors__Group_1_0__0__Impl rule__Selectors__Group_1_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Selectors__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -2972,7 +2990,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:971:1: ( rule__Selectors__Group_1_0__1__Impl rule__Selectors__Group_1_0__2 )
             // InternalSeleniumScript.g:972:2: rule__Selectors__Group_1_0__1__Impl rule__Selectors__Group_1_0__2
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             rule__Selectors__Group_1_0__1__Impl();
 
             state._fsp--;
@@ -3057,7 +3075,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:998:1: ( rule__Selectors__Group_1_0__2__Impl rule__Selectors__Group_1_0__3 )
             // InternalSeleniumScript.g:999:2: rule__Selectors__Group_1_0__2__Impl rule__Selectors__Group_1_0__3
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Selectors__Group_1_0__2__Impl();
 
             state._fsp--;
@@ -3170,21 +3188,21 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             {
              before(grammarAccess.getSelectorsAccess().getGroup_1_0_3()); 
             // InternalSeleniumScript.g:1039:2: ( rule__Selectors__Group_1_0_3__0 )*
-            loop10:
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==13) ) {
-                    alt10=1;
+                if ( (LA11_0==13) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
             	    // InternalSeleniumScript.g:1039:3: rule__Selectors__Group_1_0_3__0
             	    {
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_13);
             	    rule__Selectors__Group_1_0_3__0();
 
             	    state._fsp--;
@@ -3194,7 +3212,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -3230,7 +3248,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1052:1: ( rule__Selectors__Group_1_0_3__0__Impl rule__Selectors__Group_1_0_3__1 )
             // InternalSeleniumScript.g:1053:2: rule__Selectors__Group_1_0_3__0__Impl rule__Selectors__Group_1_0_3__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Selectors__Group_1_0_3__0__Impl();
 
             state._fsp--;
@@ -3512,13 +3530,13 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             {
              before(grammarAccess.getSelectorAccess().getGroup_1()); 
             // InternalSeleniumScript.g:1147:2: ( rule__Selector__Group_1__0 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_WHITE_SPACE) ) {
-                alt11=1;
+            if ( (LA12_0==RULE_WHITE_SPACE) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
                     // InternalSeleniumScript.g:1147:3: rule__Selector__Group_1__0
                     {
@@ -3565,7 +3583,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1160:1: ( rule__Selector__Group_1__0__Impl rule__Selector__Group_1__1 )
             // InternalSeleniumScript.g:1161:2: rule__Selector__Group_1__0__Impl rule__Selector__Group_1__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Selector__Group_1__0__Impl();
 
             state._fsp--;
@@ -3843,21 +3861,21 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             {
              before(grammarAccess.getSelectorAccess().getGroup_1_1_1()); 
             // InternalSeleniumScript.g:1255:2: ( rule__Selector__Group_1_1_1__0 )*
-            loop12:
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0==RULE_WHITE_SPACE) ) {
-                    alt12=1;
+                if ( (LA13_0==RULE_WHITE_SPACE) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
             	    // InternalSeleniumScript.g:1255:3: rule__Selector__Group_1_1_1__0
             	    {
-            	    pushFollow(FOLLOW_14);
+            	    pushFollow(FOLLOW_8);
             	    rule__Selector__Group_1_1_1__0();
 
             	    state._fsp--;
@@ -3867,7 +3885,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -3903,7 +3921,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1268:1: ( rule__Selector__Group_1_1_1__0__Impl rule__Selector__Group_1_1_1__1 )
             // InternalSeleniumScript.g:1269:2: rule__Selector__Group_1_1_1__0__Impl rule__Selector__Group_1_1_1__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Selector__Group_1_1_1__0__Impl();
 
             state._fsp--;
@@ -4147,7 +4165,7 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
             // InternalSeleniumScript.g:1349:1: ( rule__PropSelector__Group__1__Impl rule__PropSelector__Group__2 )
             // InternalSeleniumScript.g:1350:2: rule__PropSelector__Group__1__Impl rule__PropSelector__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__PropSelector__Group__1__Impl();
 
             state._fsp--;
@@ -4879,12 +4897,12 @@ public class InternalSeleniumScriptParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000082L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000003C000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000008000260L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000087C0000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000007800000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000008000260L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000087C0000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000007800000L});
 
 }

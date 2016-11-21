@@ -6,7 +6,7 @@ Script:
 	functions+=Function (END_OF_LINE functions+=Function)* WS*
 ;
 
-Function: name=Fun (SEPARATOR params+=Expression) ;
+Function: name=Fun (SEPARATOR params+=Expression)* ;
 
 Fun: "open" | "go" | "click" | "fill";
 

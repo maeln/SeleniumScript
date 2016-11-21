@@ -72,10 +72,10 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParamsExpressionParserRuleCall_1_1_0 = (RuleCall)cParamsAssignment_1_1.eContents().get(0);
 		
 		//Function:
-		//	name=Fun (SEPARATOR params+=Expression);
+		//	name=Fun (SEPARATOR params+=Expression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=Fun (SEPARATOR params+=Expression)
+		//name=Fun (SEPARATOR params+=Expression)*
 		public Group getGroup() { return cGroup; }
 		
 		//name=Fun
@@ -84,7 +84,7 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		//Fun
 		public RuleCall getNameFunParserRuleCall_0_0() { return cNameFunParserRuleCall_0_0; }
 		
-		//(SEPARATOR params+=Expression)
+		//(SEPARATOR params+=Expression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//SEPARATOR
@@ -530,7 +530,7 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Function:
-	//	name=Fun (SEPARATOR params+=Expression);
+	//	name=Fun (SEPARATOR params+=Expression)*;
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}
