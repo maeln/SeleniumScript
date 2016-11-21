@@ -127,20 +127,20 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.Expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSelectorsParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cPRIMARYParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPrimaryParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Expression:
-		//	Selectors | PRIMARY;
+		//	Selectors | Primary;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Selectors | PRIMARY
+		//Selectors | Primary
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Selectors
 		public RuleCall getSelectorsParserRuleCall_0() { return cSelectorsParserRuleCall_0; }
 		
-		//PRIMARY
-		public RuleCall getPRIMARYParserRuleCall_1() { return cPRIMARYParserRuleCall_1; }
+		//Primary
+		public RuleCall getPrimaryParserRuleCall_1() { return cPrimaryParserRuleCall_1; }
 	}
 	public class SelectorsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.Selectors");
@@ -303,13 +303,13 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNamePropParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final RuleCall cWHITE_SPACETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cParamAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParamPRIMARYParserRuleCall_2_0 = (RuleCall)cParamAssignment_2.eContents().get(0);
+		private final RuleCall cParamPrimaryParserRuleCall_2_0 = (RuleCall)cParamAssignment_2.eContents().get(0);
 		
 		//PropSelector:
-		//	name=Prop WHITE_SPACE param=PRIMARY;
+		//	name=Prop WHITE_SPACE param=Primary;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=Prop WHITE_SPACE param=PRIMARY
+		//name=Prop WHITE_SPACE param=Primary
 		public Group getGroup() { return cGroup; }
 		
 		//name=Prop
@@ -321,11 +321,11 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITE_SPACE
 		public RuleCall getWHITE_SPACETerminalRuleCall_1() { return cWHITE_SPACETerminalRuleCall_1; }
 		
-		//param=PRIMARY
+		//param=Primary
 		public Assignment getParamAssignment_2() { return cParamAssignment_2; }
 		
-		//PRIMARY
-		public RuleCall getParamPRIMARYParserRuleCall_2_0() { return cParamPRIMARYParserRuleCall_2_0; }
+		//Primary
+		public RuleCall getParamPrimaryParserRuleCall_2_0() { return cParamPrimaryParserRuleCall_2_0; }
 	}
 	public class PropElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.Prop");
@@ -354,28 +354,62 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		//'value'
 		public Keyword getValueKeyword_3() { return cValueKeyword_3; }
 	}
-	public class PRIMARYElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.PRIMARY");
+	public class PrimaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cStringValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIntValueParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//PRIMARY:
-		//	STRING | ID | INT;
+		//Primary:
+		//	StringValue | IntValue;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//STRING | ID | INT
+		//StringValue | IntValue
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//StringValue
+		public RuleCall getStringValueParserRuleCall_0() { return cStringValueParserRuleCall_0; }
+		
+		//IntValue
+		public RuleCall getIntValueParserRuleCall_1() { return cIntValueParserRuleCall_1; }
+	}
+	public class StringValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.StringValue");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0_0 = (RuleCall)cValueAlternatives_0.eContents().get(0);
+		private final RuleCall cValueIDTerminalRuleCall_0_1 = (RuleCall)cValueAlternatives_0.eContents().get(1);
+		
+		//StringValue:
+		//	value=(STRING | ID);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=(STRING | ID)
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//(STRING | ID)
+		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_0_0() { return cValueSTRINGTerminalRuleCall_0_0; }
 		
 		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		public RuleCall getValueIDTerminalRuleCall_0_1() { return cValueIDTerminalRuleCall_0_1; }
+	}
+	public class IntValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.IntValue");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//IntValue:
+		//	value=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=INT
+		public Assignment getValueAssignment() { return cValueAssignment; }
 		
 		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
+		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
 	}
 	public class SEPARATORElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "emn.fil.a3.SeleniumScript.SEPARATOR");
@@ -421,7 +455,9 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	private final ElemElements pElem;
 	private final PropSelectorElements pPropSelector;
 	private final PropElements pProp;
-	private final PRIMARYElements pPRIMARY;
+	private final PrimaryElements pPrimary;
+	private final StringValueElements pStringValue;
+	private final IntValueElements pIntValue;
 	private final SEPARATORElements pSEPARATOR;
 	private final SELECTOR_COMBINATORElements pSELECTOR_COMBINATOR;
 	private final PROP_SELECTOR_COMBINATORElements pPROP_SELECTOR_COMBINATOR;
@@ -446,7 +482,9 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		this.pElem = new ElemElements();
 		this.pPropSelector = new PropSelectorElements();
 		this.pProp = new PropElements();
-		this.pPRIMARY = new PRIMARYElements();
+		this.pPrimary = new PrimaryElements();
+		this.pStringValue = new StringValueElements();
+		this.pIntValue = new IntValueElements();
 		this.pSEPARATOR = new SEPARATORElements();
 		this.pSELECTOR_COMBINATOR = new SELECTOR_COMBINATORElements();
 		this.pPROP_SELECTOR_COMBINATOR = new PROP_SELECTOR_COMBINATORElements();
@@ -512,7 +550,7 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression:
-	//	Selectors | PRIMARY;
+	//	Selectors | Primary;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -553,7 +591,7 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PropSelector:
-	//	name=Prop WHITE_SPACE param=PRIMARY;
+	//	name=Prop WHITE_SPACE param=Primary;
 	public PropSelectorElements getPropSelectorAccess() {
 		return pPropSelector;
 	}
@@ -572,14 +610,34 @@ public class SeleniumScriptGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropAccess().getRule();
 	}
 	
-	//PRIMARY:
-	//	STRING | ID | INT;
-	public PRIMARYElements getPRIMARYAccess() {
-		return pPRIMARY;
+	//Primary:
+	//	StringValue | IntValue;
+	public PrimaryElements getPrimaryAccess() {
+		return pPrimary;
 	}
 	
-	public ParserRule getPRIMARYRule() {
-		return getPRIMARYAccess().getRule();
+	public ParserRule getPrimaryRule() {
+		return getPrimaryAccess().getRule();
+	}
+	
+	//StringValue:
+	//	value=(STRING | ID);
+	public StringValueElements getStringValueAccess() {
+		return pStringValue;
+	}
+	
+	public ParserRule getStringValueRule() {
+		return getStringValueAccess().getRule();
+	}
+	
+	//IntValue:
+	//	value=INT;
+	public IntValueElements getIntValueAccess() {
+		return pIntValue;
+	}
+	
+	public ParserRule getIntValueRule() {
+		return getIntValueAccess().getRule();
 	}
 	
 	//SEPARATOR:

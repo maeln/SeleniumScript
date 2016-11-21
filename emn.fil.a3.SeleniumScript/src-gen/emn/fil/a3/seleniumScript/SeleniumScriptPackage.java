@@ -226,7 +226,7 @@ public interface SeleniumScriptPackage extends EPackage
   int PROP_SELECTOR__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Param</b></em>' attribute.
+   * The feature id for the '<em><b>Param</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -242,6 +242,81 @@ public interface SeleniumScriptPackage extends EPackage
    * @ordered
    */
   int PROP_SELECTOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link emn.fil.a3.seleniumScript.impl.PrimaryImpl <em>Primary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see emn.fil.a3.seleniumScript.impl.PrimaryImpl
+   * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getPrimary()
+   * @generated
+   */
+  int PRIMARY = 6;
+
+  /**
+   * The number of structural features of the '<em>Primary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link emn.fil.a3.seleniumScript.impl.StringValueImpl <em>String Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see emn.fil.a3.seleniumScript.impl.StringValueImpl
+   * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getStringValue()
+   * @generated
+   */
+  int STRING_VALUE = 7;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_VALUE__VALUE = PRIMARY_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_VALUE_FEATURE_COUNT = PRIMARY_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link emn.fil.a3.seleniumScript.impl.IntValueImpl <em>Int Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see emn.fil.a3.seleniumScript.impl.IntValueImpl
+   * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getIntValue()
+   * @generated
+   */
+  int INT_VALUE = 8;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE__VALUE = PRIMARY_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Int Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE_FEATURE_COUNT = PRIMARY_FEATURE_COUNT + 1;
 
 
   /**
@@ -382,15 +457,67 @@ public interface SeleniumScriptPackage extends EPackage
   EAttribute getPropSelector_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link emn.fil.a3.seleniumScript.PropSelector#getParam <em>Param</em>}'.
+   * Returns the meta object for the containment reference '{@link emn.fil.a3.seleniumScript.PropSelector#getParam <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Param</em>'.
+   * @return the meta object for the containment reference '<em>Param</em>'.
    * @see emn.fil.a3.seleniumScript.PropSelector#getParam()
    * @see #getPropSelector()
    * @generated
    */
-  EAttribute getPropSelector_Param();
+  EReference getPropSelector_Param();
+
+  /**
+   * Returns the meta object for class '{@link emn.fil.a3.seleniumScript.Primary <em>Primary</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primary</em>'.
+   * @see emn.fil.a3.seleniumScript.Primary
+   * @generated
+   */
+  EClass getPrimary();
+
+  /**
+   * Returns the meta object for class '{@link emn.fil.a3.seleniumScript.StringValue <em>String Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Value</em>'.
+   * @see emn.fil.a3.seleniumScript.StringValue
+   * @generated
+   */
+  EClass getStringValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link emn.fil.a3.seleniumScript.StringValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see emn.fil.a3.seleniumScript.StringValue#getValue()
+   * @see #getStringValue()
+   * @generated
+   */
+  EAttribute getStringValue_Value();
+
+  /**
+   * Returns the meta object for class '{@link emn.fil.a3.seleniumScript.IntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Int Value</em>'.
+   * @see emn.fil.a3.seleniumScript.IntValue
+   * @generated
+   */
+  EClass getIntValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link emn.fil.a3.seleniumScript.IntValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see emn.fil.a3.seleniumScript.IntValue#getValue()
+   * @see #getIntValue()
+   * @generated
+   */
+  EAttribute getIntValue_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -532,12 +659,58 @@ public interface SeleniumScriptPackage extends EPackage
     EAttribute PROP_SELECTOR__NAME = eINSTANCE.getPropSelector_Name();
 
     /**
-     * The meta object literal for the '<em><b>Param</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Param</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROP_SELECTOR__PARAM = eINSTANCE.getPropSelector_Param();
+    EReference PROP_SELECTOR__PARAM = eINSTANCE.getPropSelector_Param();
+
+    /**
+     * The meta object literal for the '{@link emn.fil.a3.seleniumScript.impl.PrimaryImpl <em>Primary</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see emn.fil.a3.seleniumScript.impl.PrimaryImpl
+     * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getPrimary()
+     * @generated
+     */
+    EClass PRIMARY = eINSTANCE.getPrimary();
+
+    /**
+     * The meta object literal for the '{@link emn.fil.a3.seleniumScript.impl.StringValueImpl <em>String Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see emn.fil.a3.seleniumScript.impl.StringValueImpl
+     * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getStringValue()
+     * @generated
+     */
+    EClass STRING_VALUE = eINSTANCE.getStringValue();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
+
+    /**
+     * The meta object literal for the '{@link emn.fil.a3.seleniumScript.impl.IntValueImpl <em>Int Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see emn.fil.a3.seleniumScript.impl.IntValueImpl
+     * @see emn.fil.a3.seleniumScript.impl.SeleniumScriptPackageImpl#getIntValue()
+     * @generated
+     */
+    EClass INT_VALUE = eINSTANCE.getIntValue();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INT_VALUE__VALUE = eINSTANCE.getIntValue_Value();
 
   }
 

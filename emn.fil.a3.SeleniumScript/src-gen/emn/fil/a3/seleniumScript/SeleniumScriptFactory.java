@@ -78,6 +78,33 @@ public interface SeleniumScriptFactory extends EFactory
   PropSelector createPropSelector();
 
   /**
+   * Returns a new object of class '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary</em>'.
+   * @generated
+   */
+  Primary createPrimary();
+
+  /**
+   * Returns a new object of class '<em>String Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Value</em>'.
+   * @generated
+   */
+  StringValue createStringValue();
+
+  /**
+   * Returns a new object of class '<em>Int Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Value</em>'.
+   * @generated
+   */
+  IntValue createIntValue();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

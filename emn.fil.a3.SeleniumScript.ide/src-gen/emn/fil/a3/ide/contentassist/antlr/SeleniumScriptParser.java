@@ -40,7 +40,8 @@ public class SeleniumScriptParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSelectorsAccess().getAlternatives_1(), "rule__Selectors__Alternatives_1");
 					put(grammarAccess.getElemAccess().getAlternatives(), "rule__Elem__Alternatives");
 					put(grammarAccess.getPropAccess().getAlternatives(), "rule__Prop__Alternatives");
-					put(grammarAccess.getPRIMARYAccess().getAlternatives(), "rule__PRIMARY__Alternatives");
+					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
+					put(grammarAccess.getStringValueAccess().getValueAlternatives_0(), "rule__StringValue__ValueAlternatives_0");
 					put(grammarAccess.getScriptAccess().getGroup(), "rule__Script__Group__0");
 					put(grammarAccess.getScriptAccess().getGroup_1(), "rule__Script__Group_1__0");
 					put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
@@ -65,6 +66,8 @@ public class SeleniumScriptParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSelectorAccess().getPropSelectorsAssignment_1_1_1_1(), "rule__Selector__PropSelectorsAssignment_1_1_1_1");
 					put(grammarAccess.getPropSelectorAccess().getNameAssignment_0(), "rule__PropSelector__NameAssignment_0");
 					put(grammarAccess.getPropSelectorAccess().getParamAssignment_2(), "rule__PropSelector__ParamAssignment_2");
+					put(grammarAccess.getStringValueAccess().getValueAssignment(), "rule__StringValue__ValueAssignment");
+					put(grammarAccess.getIntValueAccess().getValueAssignment(), "rule__IntValue__ValueAssignment");
 				}
 			};
 		}

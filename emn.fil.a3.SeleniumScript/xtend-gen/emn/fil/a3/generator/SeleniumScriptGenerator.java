@@ -3,13 +3,16 @@
  */
 package emn.fil.a3.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import emn.fil.a3.seleniumScript.Expression;
 import emn.fil.a3.seleniumScript.Function;
+import emn.fil.a3.seleniumScript.Primary;
 import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.Script;
 import emn.fil.a3.seleniumScript.Selector;
 import emn.fil.a3.seleniumScript.Selectors;
+import emn.fil.a3.seleniumScript.StringValue;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -21,6 +24,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -50,8 +54,6 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("WebDriver driver;");
-    _builder.newLine();
-    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
@@ -88,120 +90,140 @@ public class SeleniumScriptGenerator extends AbstractGenerator {
   }
   
   public CharSequence genOpen(final Function f) {
-    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _xblockexpression = null;
     {
       EList<Expression> _params = f.getParams();
-      Expression _get = _params.get(0);
-      boolean _equals = _get.equals("firefox");
-      if (_equals) {
-        _builder.append("driver = new FirefoxDriver()");
-        _builder.newLine();
-      } else {
-        _builder.append("throw new RuntimeException(\"Unsuported browser.\");");
-        _builder.newLine();
+      final Expression param = _params.get(0);
+      if ((!(param instanceof StringValue))) {
+        throw new RuntimeException(("A browser name is needed for `open` function in expression " + f));
       }
+      final String browser = ((StringValue) param).getValue();
+      boolean _notEquals = (!Objects.equal(browser, "firefox"));
+      if (_notEquals) {
+        throw new RuntimeException("Browser not supported. Please use Firefox and the Gecko driver.");
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("driver = new ");
+      String _firstUpper = StringExtensions.toFirstUpper(browser);
+      _builder.append(_firstUpper, "");
+      _builder.append("Driver();");
+      _xblockexpression = _builder;
     }
-    return _builder;
+    return _xblockexpression;
   }
   
   public CharSequence genGo(final Function f) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("driver.get(\"");
-    EList<Expression> _params = f.getParams();
-    Expression _get = _params.get(0);
-    _builder.append(_get, "");
-    _builder.append("\");");
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    CharSequence _xblockexpression = null;
+    {
+      EList<Expression> _params = f.getParams();
+      final Expression param = _params.get(0);
+      if ((!(param instanceof StringValue))) {
+        throw new RuntimeException(("A valid URL is needed for `go` function in expression " + f));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("driver.get(\"");
+      String _value = ((StringValue) param).getValue();
+      _builder.append(_value, "");
+      _builder.append("\");");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
   
   public CharSequence genClick(final Function f) {
-    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _xblockexpression = null;
     {
       EList<Expression> _params = f.getParams();
-      Expression _get = _params.get(0);
-      if ((_get instanceof Selectors)) {
-        _builder.append("driver.findElement(");
-        EList<Expression> _params_1 = f.getParams();
-        _builder.append(_params_1, "");
-        _builder.append(").click();");
-        _builder.newLineIfNotEmpty();
-      } else {
-        _builder.append("throw new RuntimeException(\"Unknown expression.\");");
-        _builder.newLine();
+      final Expression param = _params.get(0);
+      if ((!(param instanceof Selectors))) {
+        throw new RuntimeException(("A Selector is needed in parameter of `click` in expression " + f));
       }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("driver.findElement(");
+      String _xpath = this.xpath(((Selectors) param));
+      _builder.append(_xpath, "");
+      _builder.append(")).click();");
+      _xblockexpression = _builder;
     }
-    return _builder;
+    return _xblockexpression;
   }
   
-  public void getXpathFromSelectors(final EList<Expression> expressions) {
-    Expression firstParam = expressions.get(0);
-    if ((firstParam instanceof Selectors)) {
-      EList<Selector> selectors = ((Selectors) firstParam).getSelectors();
-      final Function1<Selector, String> _function = (Selector s) -> {
-        String _xblockexpression = null;
-        {
-          EList<PropSelector> _propSelectors = s.getPropSelectors();
-          String props = this.getXPathFromProps(_propSelectors);
-          String _switchResult = null;
-          String _name = s.getName();
-          switch (_name) {
-            case "field":
-              StringConcatenation _builder = new StringConcatenation();
-              _builder.append("input[ @type=\"text\" and ");
-              _builder.append(props, "");
-              _builder.append("]");
-              _builder.newLineIfNotEmpty();
-              _switchResult = _builder.toString();
-              break;
-            case "button":
-              StringConcatenation _builder_1 = new StringConcatenation();
-              _builder_1.append("button[");
-              _builder_1.append(props, "");
-              _builder_1.append("] |");
-              _builder_1.newLineIfNotEmpty();
-              _builder_1.append("input[ (@type=\"button\" or @type=\"submit\" or @type=\"reset\" ");
-              _builder_1.append(props, "");
-              _builder_1.newLineIfNotEmpty();
-              _switchResult = _builder_1.toString();
-              break;
-            case "checkbox":
-              StringConcatenation _builder_2 = new StringConcatenation();
-              _builder_2.append("input[ @type=\"checkbox\" and ");
-              _builder_2.append(props, "");
-              _builder_2.append("]");
-              _builder_2.newLineIfNotEmpty();
-              _switchResult = _builder_2.toString();
-              break;
-            case "link":
-              StringConcatenation _builder_3 = new StringConcatenation();
-              _builder_3.append("a[ ");
-              _builder_3.append(props, "");
-              _builder_3.append("]");
-              _builder_3.newLineIfNotEmpty();
-              _switchResult = _builder_3.toString();
-              break;
-            case "select":
-              StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append("select[ ");
-              _builder_4.append(props, "");
-              _builder_4.append("]");
-              _builder_4.newLineIfNotEmpty();
-              _switchResult = _builder_4.toString();
-              break;
-          }
-          _xblockexpression = _switchResult;
-        }
-        return _xblockexpression;
-      };
-      List<String> paths = ListExtensions.<Selector, String>map(selectors, _function);
-    } else {
-      throw new IllegalArgumentException("Selector Needed");
-    }
+  public String xpath(final Selectors selectors) {
+    EList<Selector> _selectors = selectors.getSelectors();
+    final Function1<Selector, CharSequence> _function = (Selector it) -> {
+      return this.xpath(it);
+    };
+    List<CharSequence> _map = ListExtensions.<Selector, CharSequence>map(_selectors, _function);
+    return IterableExtensions.join(_map, " | ");
   }
   
-  public String getXPathFromProps(final EList<PropSelector> props) {
-    return "TODO";
+  public CharSequence xpath(final Selector selector) {
+    CharSequence _xblockexpression = null;
+    {
+      EList<PropSelector> _propSelectors = selector.getPropSelectors();
+      final String props = this.xpath(_propSelectors);
+      CharSequence _switchResult = null;
+      String _name = selector.getName();
+      switch (_name) {
+        case "field":
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("input[ @type=\"text\" and ");
+          _builder.append(props, "");
+          _builder.append("]");
+          _switchResult = _builder;
+          break;
+        case "button":
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("button[");
+          _builder_1.append(props, "");
+          _builder_1.append("] |");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("input[ (@type=\"button\" or @type=\"submit\" or @type=\"reset\" ");
+          _builder_1.append(props, "");
+          _builder_1.append("]");
+          _builder_1.newLineIfNotEmpty();
+          _switchResult = _builder_1;
+          break;
+        case "checkbox":
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("input[ @type=\"checkbox\" and ");
+          _builder_2.append(props, "");
+          _builder_2.append("]");
+          _switchResult = _builder_2;
+          break;
+        case "link":
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("a[ ");
+          _builder_3.append(props, "");
+          _builder_3.append("]");
+          _switchResult = _builder_3;
+          break;
+        case "select":
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append("select[ ");
+          _builder_4.append(props, "");
+          _builder_4.append("]");
+          _switchResult = _builder_4;
+          break;
+      }
+      _xblockexpression = _switchResult;
+    }
+    return _xblockexpression;
+  }
+  
+  public String xpath(final EList<PropSelector> props) {
+    final Function1<PropSelector, String> _function = (PropSelector p) -> {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("@");
+      String _name = p.getName();
+      _builder.append(_name, "");
+      _builder.append(" = ");
+      Primary _param = p.getParam();
+      _builder.append(_param, "");
+      return _builder.toString();
+    };
+    List<String> _map = ListExtensions.<PropSelector, String>map(props, _function);
+    return IterableExtensions.join(_map, " and ");
   }
   
   public CharSequence genFill(final Function f) {

@@ -106,6 +106,21 @@ public class SeleniumScriptAdapterFactory extends AdapterFactoryImpl
         return createPropSelectorAdapter();
       }
       @Override
+      public Adapter casePrimary(Primary object)
+      {
+        return createPrimaryAdapter();
+      }
+      @Override
+      public Adapter caseStringValue(StringValue object)
+      {
+        return createStringValueAdapter();
+      }
+      @Override
+      public Adapter caseIntValue(IntValue object)
+      {
+        return createIntValueAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -213,6 +228,51 @@ public class SeleniumScriptAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPropSelectorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link emn.fil.a3.seleniumScript.Primary <em>Primary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see emn.fil.a3.seleniumScript.Primary
+   * @generated
+   */
+  public Adapter createPrimaryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link emn.fil.a3.seleniumScript.StringValue <em>String Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see emn.fil.a3.seleniumScript.StringValue
+   * @generated
+   */
+  public Adapter createStringValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link emn.fil.a3.seleniumScript.IntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see emn.fil.a3.seleniumScript.IntValue
+   * @generated
+   */
+  public Adapter createIntValueAdapter()
   {
     return null;
   }

@@ -32,8 +32,6 @@ public class SeleniumScriptSyntacticSequencer extends AbstractSyntacticSequencer
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getEND_OF_LINERule())
 			return getEND_OF_LINEToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getPRIMARYRule())
-			return getPRIMARYToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getPROP_SELECTOR_COMBINATORRule())
 			return getPROP_SELECTOR_COMBINATORToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSELECTOR_COMBINATORRule())
@@ -54,17 +52,6 @@ public class SeleniumScriptSyntacticSequencer extends AbstractSyntacticSequencer
 		if (node != null)
 			return getTokenText(node);
 		return "\n";
-	}
-	
-	/**
-	 * PRIMARY:
-	 * 	STRING | ID | INT
-	 * ;
-	 */
-	protected String getPRIMARYToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
 	}
 	
 	/**

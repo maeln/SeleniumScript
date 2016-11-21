@@ -15,6 +15,7 @@ import emn.fil.a3.seleniumScript.Selector
 import org.eclipse.emf.common.util.EList
 import emn.fil.a3.seleniumScript.Expression
 import emn.fil.a3.seleniumScript.PropSelector
+import emn.fil.a3.seleniumScript.StringValue
 
 /**
  * Generates code from your model files on save.
@@ -35,76 +36,67 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 				System.setProperty("webdriver.gecko.driver", "TO FILL");
 				WebDriver driver;
 				
-				
 				«FOR f : script.functions»
 					«switch f.name {
-						case "open":
-							genOpen(f)
-						case "go":
-							genGo(f)
-						case "click":
-							genClick(f)
-						case "fill":
-							genFill(f)
+						case "open": genOpen(f)
+						case "go": genGo(f)
+						case "click": genClick(f)
+						case "fill": genFill(f)
 					}»
 				«ENDFOR»
 			}
 		}
 	'''
 	
-	def CharSequence genOpen(Function f) '''
-		«IF f.params.get(0).equals("firefox")»
-			driver = new FirefoxDriver()
-		«ELSE»
-			throw new RuntimeException("Unsuported browser.");
-		«ENDIF»
-	'''
-	
-	def CharSequence genGo(Function f) '''
-		driver.get("«f.params.get(0)»");
-	'''
-	
-	def CharSequence genClick(Function f) '''
-		«IF f.params.get(0) instanceof Selectors»
-		driver.findElement(«f.params»).click();
-		«ELSE»
-			throw new RuntimeException("Unknown expression.");
-		«ENDIF»
-	'''
-	
-	def getXpathFromSelectors(EList<Expression> expressions) {
-		var firstParam = expressions.get(0);
-		if(firstParam instanceof Selectors) {
-			var selectors = (firstParam as Selectors).selectors
-			var paths = selectors.map[s |
-				var props = getXPathFromProps(s.propSelectors);
-				switch s.name {
-					case "field" : '''
-						input[ @type="text" and «props»]
-					'''
-					case "button" :'''
-						button[«props»] |
-						input[ (@type="button" or @type="submit" or @type="reset" «props»
-					'''
-					
-					case "checkbox" :'''
-						input[ @type="checkbox" and «props»]
-					'''
-					case "link" :'''
-						a[ «props»]
-					'''
-					
-					case "select" :'''
-						select[ «props»]
-					'''
-					
-				}
-			]
-		} else throw new IllegalArgumentException("Selector Needed")
+	def CharSequence genOpen(Function f) {
+		val param = f.params.get(0)
+		if(!(param instanceof StringValue)) 
+			throw new RuntimeException("A browser name is needed for `open` function in expression " + f)
+		
+		val browser = (param as StringValue).value
+		
+		if(browser != 'firefox')
+			throw new RuntimeException("Browser not supported. Please use Firefox and the Gecko driver.")
+		
+		'''driver = new « browser.toFirstUpper »Driver();'''
 	}
 	
-	def getXPathFromProps(EList<PropSelector> props) {
-		"TODO"
+	def CharSequence genGo(Function f) {
+		val param = f.params.get(0)
+		if(!(param instanceof StringValue))
+			throw new RuntimeException("A valid URL is needed for `go` function in expression " + f)
+			
+		'''driver.get("«(param as StringValue).value»");'''
+	}
+	
+	def CharSequence genClick(Function f) {
+		val param = f.params.get(0)
+		if(!(param instanceof Selectors)) 
+			throw new RuntimeException("A Selector is needed in parameter of `click` in expression " + f);
+			
+		'''driver.findElement(« xpath(param as Selectors) »)).click();'''
+	}
+	
+	def xpath(Selectors selectors) {
+		selectors.selectors.map[ xpath ].join(" | ")
+	}
+	
+	def xpath(Selector selector) {
+		val props = xpath(selector.propSelectors);
+		switch selector.name {
+			case "field" : '''input[ @type="text" and «props»]'''
+			case "button" : '''
+				button[«props»] |
+				input[ (@type="button" or @type="submit" or @type="reset" «props»]
+			'''
+			case "checkbox" :'''input[ @type="checkbox" and «props»]'''
+			case "link" :'''a[ «props»]'''
+			case "select" :'''select[ «props»]'''
+		}
+	}
+	
+	def xpath(EList<PropSelector> props) {
+		props.map[p | '''@«p.name» = «p.param»'''].join(" and ")
 	}
 	
 	def CharSequence genFill(Function f) '''

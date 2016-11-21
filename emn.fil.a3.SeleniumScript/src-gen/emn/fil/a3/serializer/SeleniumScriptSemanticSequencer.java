@@ -5,11 +5,13 @@ package emn.fil.a3.serializer;
 
 import com.google.inject.Inject;
 import emn.fil.a3.seleniumScript.Function;
+import emn.fil.a3.seleniumScript.IntValue;
 import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.Script;
 import emn.fil.a3.seleniumScript.Selector;
 import emn.fil.a3.seleniumScript.Selectors;
 import emn.fil.a3.seleniumScript.SeleniumScriptPackage;
+import emn.fil.a3.seleniumScript.StringValue;
 import emn.fil.a3.services.SeleniumScriptGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -39,6 +41,9 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 			case SeleniumScriptPackage.FUNCTION:
 				sequence_Function(context, (Function) semanticObject); 
 				return; 
+			case SeleniumScriptPackage.INT_VALUE:
+				sequence_IntValue(context, (IntValue) semanticObject); 
+				return; 
 			case SeleniumScriptPackage.PROP_SELECTOR:
 				sequence_PropSelector(context, (PropSelector) semanticObject); 
 				return; 
@@ -50,6 +55,9 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 				return; 
 			case SeleniumScriptPackage.SELECTORS:
 				sequence_Selectors(context, (Selectors) semanticObject); 
+				return; 
+			case SeleniumScriptPackage.STRING_VALUE:
+				sequence_StringValue(context, (StringValue) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -70,10 +78,30 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 	
 	/**
 	 * Contexts:
+	 *     Expression returns IntValue
+	 *     Primary returns IntValue
+	 *     IntValue returns IntValue
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_IntValue(ISerializationContext context, IntValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SeleniumScriptPackage.Literals.INT_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SeleniumScriptPackage.Literals.INT_VALUE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntValueAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PropSelector returns PropSelector
 	 *
 	 * Constraint:
-	 *     (name=Prop param=PRIMARY)
+	 *     (name=Prop param=Primary)
 	 */
 	protected void sequence_PropSelector(ISerializationContext context, PropSelector semanticObject) {
 		if (errorAcceptor != null) {
@@ -84,7 +112,7 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPropSelectorAccess().getNamePropParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getPropSelectorAccess().getParamPRIMARYParserRuleCall_2_0(), semanticObject.getParam());
+		feeder.accept(grammarAccess.getPropSelectorAccess().getParamPrimaryParserRuleCall_2_0(), semanticObject.getParam());
 		feeder.finish();
 	}
 	
@@ -122,6 +150,20 @@ public class SeleniumScriptSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     ((selectors+=Selector selectors+=Selector*) | selectors+=Selector)
 	 */
 	protected void sequence_Selectors(ISerializationContext context, Selectors semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns StringValue
+	 *     Primary returns StringValue
+	 *     StringValue returns StringValue
+	 *
+	 * Constraint:
+	 *     (value=STRING | value=ID)
+	 */
+	protected void sequence_StringValue(ISerializationContext context, StringValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

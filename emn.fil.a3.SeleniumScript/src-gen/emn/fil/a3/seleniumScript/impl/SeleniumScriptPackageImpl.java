@@ -5,12 +5,15 @@ package emn.fil.a3.seleniumScript.impl;
 
 import emn.fil.a3.seleniumScript.Expression;
 import emn.fil.a3.seleniumScript.Function;
+import emn.fil.a3.seleniumScript.IntValue;
+import emn.fil.a3.seleniumScript.Primary;
 import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.Script;
 import emn.fil.a3.seleniumScript.Selector;
 import emn.fil.a3.seleniumScript.Selectors;
 import emn.fil.a3.seleniumScript.SeleniumScriptFactory;
 import emn.fil.a3.seleniumScript.SeleniumScriptPackage;
+import emn.fil.a3.seleniumScript.StringValue;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -68,6 +71,27 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
    * @generated
    */
   private EClass propSelectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass primaryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intValueEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -267,9 +291,59 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPropSelector_Param()
+  public EReference getPropSelector_Param()
   {
-    return (EAttribute)propSelectorEClass.getEStructuralFeatures().get(1);
+    return (EReference)propSelectorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPrimary()
+  {
+    return primaryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStringValue()
+  {
+    return stringValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringValue_Value()
+  {
+    return (EAttribute)stringValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIntValue()
+  {
+    return intValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIntValue_Value()
+  {
+    return (EAttribute)intValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -320,7 +394,15 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     propSelectorEClass = createEClass(PROP_SELECTOR);
     createEAttribute(propSelectorEClass, PROP_SELECTOR__NAME);
-    createEAttribute(propSelectorEClass, PROP_SELECTOR__PARAM);
+    createEReference(propSelectorEClass, PROP_SELECTOR__PARAM);
+
+    primaryEClass = createEClass(PRIMARY);
+
+    stringValueEClass = createEClass(STRING_VALUE);
+    createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
+
+    intValueEClass = createEClass(INT_VALUE);
+    createEAttribute(intValueEClass, INT_VALUE__VALUE);
   }
 
   /**
@@ -353,6 +435,9 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     // Add supertypes to classes
     selectorsEClass.getESuperTypes().add(this.getExpression());
+    primaryEClass.getESuperTypes().add(this.getExpression());
+    stringValueEClass.getESuperTypes().add(this.getPrimary());
+    intValueEClass.getESuperTypes().add(this.getPrimary());
 
     // Initialize classes and features; add operations and parameters
     initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -373,7 +458,15 @@ public class SeleniumScriptPackageImpl extends EPackageImpl implements SeleniumS
 
     initEClass(propSelectorEClass, PropSelector.class, "PropSelector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPropSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, PropSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPropSelector_Param(), ecorePackage.getEString(), "param", null, 0, 1, PropSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPropSelector_Param(), this.getPrimary(), null, "param", null, 0, 1, PropSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(primaryEClass, Primary.class, "Primary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(intValueEClass, IntValue.class, "IntValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntValue_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

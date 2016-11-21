@@ -116,6 +116,32 @@ public class SeleniumScriptSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SeleniumScriptPackage.PRIMARY:
+      {
+        Primary primary = (Primary)theEObject;
+        T result = casePrimary(primary);
+        if (result == null) result = caseExpression(primary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SeleniumScriptPackage.STRING_VALUE:
+      {
+        StringValue stringValue = (StringValue)theEObject;
+        T result = caseStringValue(stringValue);
+        if (result == null) result = casePrimary(stringValue);
+        if (result == null) result = caseExpression(stringValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SeleniumScriptPackage.INT_VALUE:
+      {
+        IntValue intValue = (IntValue)theEObject;
+        T result = caseIntValue(intValue);
+        if (result == null) result = casePrimary(intValue);
+        if (result == null) result = caseExpression(intValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -212,6 +238,54 @@ public class SeleniumScriptSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePropSelector(PropSelector object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimary(Primary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringValue(StringValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntValue(IntValue object)
   {
     return null;
   }

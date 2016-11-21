@@ -3,12 +3,15 @@
  */
 package emn.fil.a3.seleniumScript.impl;
 
+import emn.fil.a3.seleniumScript.Primary;
 import emn.fil.a3.seleniumScript.PropSelector;
 import emn.fil.a3.seleniumScript.SeleniumScriptPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -50,24 +53,14 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getParam() <em>Param</em>}' attribute.
+   * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParam()
    * @generated
    * @ordered
    */
-  protected static final String PARAM_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getParam() <em>Param</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParam()
-   * @generated
-   * @ordered
-   */
-  protected String param = PARAM_EDEFAULT;
+  protected Primary param;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,7 +111,7 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getParam()
+  public Primary getParam()
   {
     return param;
   }
@@ -128,12 +121,53 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParam(String newParam)
+  public NotificationChain basicSetParam(Primary newParam, NotificationChain msgs)
   {
-    String oldParam = param;
+    Primary oldParam = param;
     param = newParam;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SeleniumScriptPackage.PROP_SELECTOR__PARAM, oldParam, param));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeleniumScriptPackage.PROP_SELECTOR__PARAM, oldParam, newParam);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParam(Primary newParam)
+  {
+    if (newParam != param)
+    {
+      NotificationChain msgs = null;
+      if (param != null)
+        msgs = ((InternalEObject)param).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeleniumScriptPackage.PROP_SELECTOR__PARAM, null, msgs);
+      if (newParam != null)
+        msgs = ((InternalEObject)newParam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SeleniumScriptPackage.PROP_SELECTOR__PARAM, null, msgs);
+      msgs = basicSetParam(newParam, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SeleniumScriptPackage.PROP_SELECTOR__PARAM, newParam, newParam));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SeleniumScriptPackage.PROP_SELECTOR__PARAM:
+        return basicSetParam(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -168,7 +202,7 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
         setName((String)newValue);
         return;
       case SeleniumScriptPackage.PROP_SELECTOR__PARAM:
-        setParam((String)newValue);
+        setParam((Primary)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,7 +222,7 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
         setName(NAME_EDEFAULT);
         return;
       case SeleniumScriptPackage.PROP_SELECTOR__PARAM:
-        setParam(PARAM_EDEFAULT);
+        setParam((Primary)null);
         return;
     }
     super.eUnset(featureID);
@@ -207,7 +241,7 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
       case SeleniumScriptPackage.PROP_SELECTOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SeleniumScriptPackage.PROP_SELECTOR__PARAM:
-        return PARAM_EDEFAULT == null ? param != null : !PARAM_EDEFAULT.equals(param);
+        return param != null;
     }
     return super.eIsSet(featureID);
   }
@@ -225,8 +259,6 @@ public class PropSelectorImpl extends MinimalEObjectImpl.Container implements Pr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", param: ");
-    result.append(param);
     result.append(')');
     return result.toString();
   }

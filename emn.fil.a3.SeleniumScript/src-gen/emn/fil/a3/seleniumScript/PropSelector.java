@@ -51,29 +51,29 @@ public interface PropSelector extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Param</b></em>' attribute.
+   * Returns the value of the '<em><b>Param</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Param</em>' attribute isn't clear,
+   * If the meaning of the '<em>Param</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Param</em>' attribute.
-   * @see #setParam(String)
+   * @return the value of the '<em>Param</em>' containment reference.
+   * @see #setParam(Primary)
    * @see emn.fil.a3.seleniumScript.SeleniumScriptPackage#getPropSelector_Param()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getParam();
+  Primary getParam();
 
   /**
-   * Sets the value of the '{@link emn.fil.a3.seleniumScript.PropSelector#getParam <em>Param</em>}' attribute.
+   * Sets the value of the '{@link emn.fil.a3.seleniumScript.PropSelector#getParam <em>Param</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Param</em>' attribute.
+   * @param value the new value of the '<em>Param</em>' containment reference.
    * @see #getParam()
    * @generated
    */
-  void setParam(String value);
+  void setParam(Primary value);
 
 } // PropSelector

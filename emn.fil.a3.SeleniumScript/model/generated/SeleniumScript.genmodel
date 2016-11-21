@@ -23,7 +23,14 @@
     </genClasses>
     <genClasses ecoreClass="SeleniumScript.ecore#//PropSelector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SeleniumScript.ecore#//PropSelector/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SeleniumScript.ecore#//PropSelector/param"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SeleniumScript.ecore#//PropSelector/param"/>
+    </genClasses>
+    <genClasses ecoreClass="SeleniumScript.ecore#//Primary"/>
+    <genClasses ecoreClass="SeleniumScript.ecore#//StringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SeleniumScript.ecore#//StringValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="SeleniumScript.ecore#//IntValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SeleniumScript.ecore#//IntValue/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

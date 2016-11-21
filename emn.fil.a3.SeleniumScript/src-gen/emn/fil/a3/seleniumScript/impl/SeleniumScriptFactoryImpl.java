@@ -71,6 +71,9 @@ public class SeleniumScriptFactoryImpl extends EFactoryImpl implements SeleniumS
       case SeleniumScriptPackage.SELECTORS: return createSelectors();
       case SeleniumScriptPackage.SELECTOR: return createSelector();
       case SeleniumScriptPackage.PROP_SELECTOR: return createPropSelector();
+      case SeleniumScriptPackage.PRIMARY: return createPrimary();
+      case SeleniumScriptPackage.STRING_VALUE: return createStringValue();
+      case SeleniumScriptPackage.INT_VALUE: return createIntValue();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -140,6 +143,39 @@ public class SeleniumScriptFactoryImpl extends EFactoryImpl implements SeleniumS
   {
     PropSelectorImpl propSelector = new PropSelectorImpl();
     return propSelector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Primary createPrimary()
+  {
+    PrimaryImpl primary = new PrimaryImpl();
+    return primary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringValue createStringValue()
+  {
+    StringValueImpl stringValue = new StringValueImpl();
+    return stringValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntValue createIntValue()
+  {
+    IntValueImpl intValue = new IntValueImpl();
+    return intValue;
   }
 
   /**

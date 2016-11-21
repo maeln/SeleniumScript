@@ -12,7 +12,7 @@ Fun: "open" | "go" | "click" | "fill";
 
 
 Expression:
-	Selectors | PRIMARY 
+	Selectors | Primary
 ;
 
 Selectors:
@@ -33,14 +33,13 @@ Selector:
 Elem: 'field'|'button'|'checkbox'|'link'|'select';
 
 
-PropSelector: name=Prop WHITE_SPACE param=PRIMARY;
+PropSelector: name=Prop WHITE_SPACE param=Primary;
 Prop: 'id'|'class'|'name'|'value'
 ;
 
-
-PRIMARY:
-	STRING | ID | INT
-;
+Primary: StringValue | IntValue;
+StringValue: value=(STRING | ID);
+IntValue: value=(INT);
 
 SEPARATOR: WHITE_SPACE;
 SELECTOR_COMBINATOR: '.';
