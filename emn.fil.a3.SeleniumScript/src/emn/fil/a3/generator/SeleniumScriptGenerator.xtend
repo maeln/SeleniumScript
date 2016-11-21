@@ -112,8 +112,13 @@ class SeleniumScriptGenerator extends AbstractGenerator {
 			return prim.toString()
 	}
 	
-	def CharSequence genFill(Function f) '''
-	'''
+	def CharSequence genFill(Function f) {
+		val param = f.params.get(0)
+		if(!(param instanceof Selectors)) 
+			throw new RuntimeException("A Selector is needed in parameter of `click` in expression " + f);
+			
+		'''driver.findElement(« xpath(param as Selectors) »)).sendKeys(«xpath(f.params.get(1) as Primary)»);'''
+	}
 	
 	def CharSequence genXPath(Selector s) '''
 	
